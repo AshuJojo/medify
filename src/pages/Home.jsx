@@ -1,7 +1,12 @@
+import AlertBar from "../components/AlertBar"
+import Navbar from "../components/Navbar"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <AlertBar />
+      <Navbar bgColor={'inherit'} shadow={false} />
+    </>
   )
 }
 

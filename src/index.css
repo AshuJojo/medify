@@ -2,4 +2,11 @@ body,
 html {
   margin: 0;
   padding: 0;
+  min-height: 90vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background: linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%);
 }
