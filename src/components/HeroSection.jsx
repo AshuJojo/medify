@@ -7,8 +7,8 @@ const CustomSpan = styled('span')(({ theme }) => ({
 
 const HeroSection = () => {
     return (
-        <Container sx={{ minHeight: '80vh', justifyContent: 'space-between'}}>
-            <Box sx={{ width: '50%' }}>
+        <Container sx={{ minHeight: '80vh', justifyContent: 'space-between', alignItems: 'start'}}>
+            <Box sx={{ width: '50%', alignSelf: 'center' }}>
                 <Typography
                     variant="h4"
                     sx={{
@@ -40,10 +40,16 @@ const HeroSection = () => {
 
                 <Button sx={{ px: 3, my: 2 }}>Find Centers</Button>
             </Box>
-            <Box sx={{ width: '50%' }}>
-                <Box sx={{ position: 'relative' }}>
-                    <img src={HeroImage} style={{ width: '100%', height: 'auto', objectFit: 'contain'}} alt='Hero Image' />
-                </Box>
+            <Box sx={{ width: '50%', position: 'relative' }}>
+                <img src={HeroImage}
+                    style={{
+                        width: '100%',
+                        height: 'auto',
+                        objectFit: 'contain',
+                        position: 'absolute',
+                        top: 50
+                    }}
+                    alt='Hero Image' />
             </Box>
         </Container>
     )
