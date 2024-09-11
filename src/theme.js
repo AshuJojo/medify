@@ -14,12 +14,31 @@ const theme = createTheme({
             defaultProps: {
                 variant: 'contained',
                 color: 'primary',
-                sx: {
-                    boxShadow: 0,
-                    borderRadius: 2,
+            },
+            styleOverrides: {
+                root: {
+                    fontSize: '0.8rem',
+                    fontWeight: 400,
+                    lineHeight: '1.5rem',
+                    borderRadius: 8,
+                    boxShadow: 'none',
                     '&:hover': {
                         boxShadow: 0
                     }
+                },
+            }
+        },
+        MuiTypography: {
+            defaultProps: {
+                fontFamily: '"Poppins", sans-serif'
+            }
+        },
+        MuiContainer: {
+            styleOverrides: {
+                root: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
                 }
             }
         }

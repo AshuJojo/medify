@@ -1,4 +1,5 @@
 import AlertBar from "../components/AlertBar"
+import HeroSection from "../components/HeroSection"
 import Navbar from "../components/Navbar"
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
+      <HeroSection />
     </>
   )
 }
