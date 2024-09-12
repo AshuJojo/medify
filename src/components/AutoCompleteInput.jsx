@@ -22,6 +22,7 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
     const handleClose = () => {
         setOpen(false);
         setOptions([]);
+        setLoading(false);
     };
 
     return (
@@ -34,16 +35,21 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
             loading={loading}
             value={value}
             onChange={(e, v) => { setValue(v) }}
+            disableClearable
             sx={{
+                '& .MuiAutocomplete-inputRoot': {
+                    paddingRight: 0,
+                },
                 "& .MuiOutlinedInput-root": {
                     borderRadius: "0.5rem",
                     color: 'primary.dark',
-                    padding: "0"
+                    padding: '0 !important',
                 },
                 "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                     border: "1px solid #eee",
                     borderRadius: "0.5rem",
-                }
+                },
+
             }}
             renderInput={(params) => (
                 <TextField
@@ -53,6 +59,7 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
                         bgcolor: '#FAFBFE',
                         border: '1px solid #F0F0F0',
                         borderRadius: "0.5rem",
+                        px: 0,
                     }}
                     slotProps={{
                         input: {
@@ -63,10 +70,9 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
                                 </Box>
                             ),
                             endAdornment: (
-                                <>
+                                <Box sx={{ px: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                                    {/* {params.InputProps.endAdornment} */}
-                                </>
+                                </Box>
                             ),
                         },
                     }}

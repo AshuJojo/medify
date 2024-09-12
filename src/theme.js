@@ -33,10 +33,13 @@ const theme = createTheme({
                 fontFamily: '"Poppins", sans-serif'
             }
         },
-        MuiCard:{
-            styleOverrides:{
-                root:{
-                    width: '100%'
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }
             }
         },
@@ -48,7 +51,8 @@ const theme = createTheme({
                     alignItems: 'center'
                 }
             }
-        }
+        },
+        
     }
 });
 

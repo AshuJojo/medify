@@ -1,8 +1,9 @@
-import { Card, Container } from "@mui/material"
+import { Box, Card, Container, Typography } from "@mui/material"
 import AlertBar from "../components/AlertBar"
 import HeroSection from "../components/HeroSection"
 import Navbar from "../components/Navbar"
 import LocationForm from "../components/forms/LocationForm"
+import SearchRecommendation from "../components/SearchRecommendation"
 
 const Home = () => {
   return (
@@ -12,12 +13,20 @@ const Home = () => {
       <HeroSection />
       <Container>
         <Card sx={{
-          py: '3.375rem',
+          py: '2.5rem',
           px: '2.188rem',
-          borderRadius: 3.75
+          borderRadius: 3.75,
+
+          flexDirection: 'column',
+          gap: '2rem'
         }}>
           <LocationForm />
-          
+
+
+          <Box width="100%">
+            <Typography variant="h6" textAlign={'center'}>You may be looking for</Typography>
+            <SearchRecommendation />
+          </Box>
         </Card>
       </Container>
     </>

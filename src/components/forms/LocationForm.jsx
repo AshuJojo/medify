@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material"
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../../data/constants";
-import AutocompleteInput from "../ui/AutocompleteInput";
+import AutocompleteInput from "../AutoCompleteInput";
 import { FiSearch } from "react-icons/fi";
 
 const LocationForm = () => {
@@ -19,6 +19,7 @@ const LocationForm = () => {
             return null;
         }
     }
+
 
     const fetchCities = async () => {
         if (!state)
@@ -45,6 +46,7 @@ const LocationForm = () => {
             gap: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
+            width: '100%',
         }}
         >
             <Box sx={{ width: '50%' }}>
