@@ -33,6 +33,13 @@ const theme = createTheme({
                 fontFamily: '"Poppins", sans-serif'
             }
         },
+        MuiCard:{
+            styleOverrides:{
+                root:{
+                    width: '100%'
+                }
+            }
+        },
         MuiContainer: {
             styleOverrides: {
                 root: {
