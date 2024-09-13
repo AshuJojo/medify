@@ -1,5 +1,5 @@
 import { Box, Button, Container, styled, Typography } from "@mui/material";
-import HeroImage from '../assets/images/hero-image.png';
+import HeroImage from '../../assets/images/hero-image.png';
 
 const CustomSpan = styled('span')(({ theme }) => ({
     color: theme.palette.primary.main
