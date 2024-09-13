@@ -6,6 +6,7 @@ import LocationForm from "../components/forms/LocationForm"
 import SearchRecommendation from "../components/SearchRecommendation"
 import OffersSection from "../components/sections/OffersSection"
 import Specialisations from "../components/Specialisations"
+import DoctorsCarousel from "../components/DoctorsCarousel"
 
 const Home = () => {
 
@@ -42,13 +43,28 @@ const Home = () => {
         <OffersSection />
       </Box>
 
-      <Container py={2} sx={{ flexDirection: 'column' }}>
+      <Container sx={{ pb: 6, flexDirection: 'column' }}>
         <Typography variant="h3" fontWeight={600} py='3.5rem'>Find By Specialisation</Typography>
 
-        <Box sx={{width: '100%'}}>
+        <Box sx={{ width: '100%' }}>
           <Specialisations />
         </Box>
       </Container>
+
+      <Box sx={{ backgroundColor: '#ffffff' }}>
+        <Typography
+          variant="h3"
+          fontWeight={600}
+          py='3.5rem'
+          textAlign={'center'}
+        >
+          Our Medical Specialist
+        </Typography>
+
+        <Box sx={{ width: '100%' }}>
+          <DoctorsCarousel />
+        </Box>
+      </Box>
     </>
   )
 }

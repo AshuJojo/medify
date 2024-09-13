@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import Grid from '@mui/material/Grid2';
 import IconCard from "./cards/IconCard"
 import { FaRegHospital, FaUserDoctor } from "react-icons/fa6"
 import { RiHospitalLine } from "react-icons/ri"
@@ -41,32 +41,37 @@ const SearchRecommendation = () => {
     }, [selectedCardId]);
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: '1rem',
-            }}
+        <Grid
+            container
+            spacing={2}
+            width='100%'
         >
             {recommendations.map((recommendation) => {
                 return (
-                    <IconCard
-                        key={recommendation.id}
-                        icon={recommendation.icon}
-                        label={recommendation.label}
-                        elevation={0}
+                    <Grid
+                        size={2}
                         sx={{
-                            flexGrow: 1,
-                            bgcolor: ((recommendation.id === selectedCardId) ? '#2aa6ff14' : '#FAFBFE'),
-                            border: ((recommendation.id === selectedCardId) ? '1px solid #2AA7FF' : ''),
+                            display: 'flex',
                         }}
-                        onClick={() => { setSelectedCardId(recommendation.id) }}
-                    />
+                        key={recommendation.id}
+                        flexGrow={1}
+                    >
+                        <IconCard
+                            icon={recommendation.icon}
+                            label={recommendation.label}
+                            elevation={0}
+                            sx={{
+                                flexGrow: 1,
+                                bgcolor: ((recommendation.id === selectedCardId) ? '#2aa6ff14' : '#FAFBFE'),
+                                border: ((recommendation.id === selectedCardId) ? '1px solid #2AA7FF' : ''),
+                            }}
+                            onClick={() => { setSelectedCardId(recommendation.id) }}
+                        />
+                    </Grid>
                 )
             }
             )}
-        </Box>
+        </Grid>
     )
 }
 

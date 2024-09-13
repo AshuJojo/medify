@@ -76,23 +76,25 @@ const Specialisations = () => {
                     key={item.id}
                     size={3}
                     sx={{
-                        display: 'flex'
+                        display: 'flex',
                     }}
                 >
                     <IconCard
                         icon={item.icon}
                         label={item.label}
-                        elevation={0}
-                        sx={{
-                            flexGrow: 1
-                        }}
+                        elevation={0}   
                         iconSize={"3.75rem"}
                     />
                 </Grid>
             )}
 
             <Grid size={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Button onClick={() => { setIsExpanded(!isExpanded) }} sx={{ ms: 'auto', me: 'auto' }}>{isExpanded ? 'Collapse' : 'View All'}</Button>
+                <Button
+                    onClick={() => { setIsExpanded(!isExpanded) }}
+                    sx={{ ms: 'auto', me: 'auto', px: 4, py: 1 }}
+                >
+                    {isExpanded ? 'Collapse' : 'View All'}
+                </Button>
             </Grid>
         </Grid>
     )

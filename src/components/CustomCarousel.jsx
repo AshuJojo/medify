@@ -1,26 +1,35 @@
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-const CustomCarousel = ({ children }) => {
-
+const CustomCarousel = ({ children, ...props }) => {
+    
     return (
         <Swiper
-            slidesPerView={3}
-            spaceBetween={70}
+            {...props}
             pagination={{
                 dynamicBullets: true,
             }}
             modules={[Pagination]}
             className="mySwiper"
             style={{
-                paddingBottom: '2rem'
+                paddingBottom: '3rem',
             }}
         >
-            {children.map((elm, idx) => (<SwiperSlide key={idx}>{elm}</SwiperSlide>))}
+            {Array.isArray(children) && children.map((elm, idx) => (
+                <SwiperSlide key={idx}
+                    style={{
+                        width: 'fit-content',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}
+                >
+                    {elm}
+                </SwiperSlide>
+            ))}
         </Swiper>
     )
 }

@@ -9,7 +9,6 @@ const IconCard = ({ icon, label, iconSize = '2.813rem', ...props }) => {
             {...props}
             sx={{
                 ...props?.sx,
-                width: 'fit-content',
                 flexDirection: 'column',
                 borderRadius: '0.5rem',
                 p: '1rem',
