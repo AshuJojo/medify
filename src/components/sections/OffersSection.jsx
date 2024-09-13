@@ -1,9 +1,9 @@
 import { Box, Container } from "@mui/material"
 import CustomCarousel from "../CustomCarousel";
 
-import OfferCard from "../cards/OfferCard"
 import offer1 from '../../assets/images/offers/offer1.png';
 import offer2 from '../../assets/images/offers/offer2.png';
+import ImageCard from "../cards/SingleImageCard";
 
 const OffersSection = () => {
     const offers = [
@@ -51,10 +51,15 @@ const OffersSection = () => {
 
                     {offers.map((offer, idx) => {
                         return (
-                            <OfferCard
+                            <ImageCard
                                 key={idx}
                                 image={offer.image}
                                 alt={offer.alt}
+                                sx={{
+                                    borderRadius: 6,
+                                    padding: 0,
+                                    margin: 0,
+                                }}
                             />
                         )
                     })}
