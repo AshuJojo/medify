@@ -1,4 +1,4 @@
-import { Box, Card, Container, Typography } from "@mui/material"
+import { Box, Card, Container,  Typography } from "@mui/material"
 import AlertBar from "../components/AlertBar"
 import HeroSection from "../components/sections/HeroSection"
 import Navbar from "../components/Navbar"
@@ -7,6 +7,9 @@ import SearchRecommendation from "../components/SearchRecommendation"
 import OffersSection from "../components/sections/OffersSection"
 import Specialisations from "../components/Specialisations"
 import DoctorsCarousel from "../components/DoctorsCarousel"
+import CareSection from "../components/sections/CareSection"
+
+
 
 const Home = () => {
 
@@ -51,7 +54,7 @@ const Home = () => {
         </Box>
       </Container>
 
-      <Box sx={{ backgroundColor: '#ffffff' }}>
+      <Box sx={{ backgroundColor: '#ffffff', pb: 4 }}>
         <Typography
           variant="h3"
           fontWeight={600}
@@ -64,7 +67,9 @@ const Home = () => {
         <Box sx={{ width: '100%' }}>
           <DoctorsCarousel />
         </Box>
+
       </Box>
+      <CareSection />
     </>
   )
 }

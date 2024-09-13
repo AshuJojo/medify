@@ -3,7 +3,7 @@ import CustomCarousel from "../CustomCarousel";
 
 import offer1 from '../../assets/images/offers/offer1.png';
 import offer2 from '../../assets/images/offers/offer2.png';
-import ImageCard from "../cards/SingleImageCard";
+import ImageCard from "../cards/ImageCard";
 
 const OffersSection = () => {
     const offers = [

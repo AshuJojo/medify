@@ -5,7 +5,7 @@ import doc3 from '../assets/images/docs/doc3.png'
 import doc4 from '../assets/images/docs/doc4.png'
 import doc5 from '../assets/images/docs/doc5.png'
 import { Box, Typography } from '@mui/material';
-import ImageCard from './cards/SingleImageCard';
+import ImageCard from './cards/ImageCard';
 
 const DoctorsCarousel = () => {
   const data = [
@@ -60,19 +60,18 @@ const DoctorsCarousel = () => {
               gap: 3
             }}
           >
-            {/* <DoctorCard image={doctor.image} alt={doctor.name} /> */}
 
             <ImageCard image={doctor.image} alt={doctor.name}
               imageSx={{
                 background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
-                pt: 2,
+                pt: 4,
                 px: 4,
-                height: '24rem',
+                height: '22rem',
+                objectFit: 'contain'
               }}
 
               elevation={1}
               sx={{
-                width: "fit-content",
                 height: '24rem',
                 border: '0.5rem solid white',
                 borderRadius: '100% 100% 0 0',

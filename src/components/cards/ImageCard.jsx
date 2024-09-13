@@ -2,10 +2,7 @@ import { Card, CardMedia } from "@mui/material"
 
 const ImageCard = ({ image, alt, imageSx, ...props }) => {
     return (
-        <Card
-            {...props}
-            
-        >
+        <Card {...props}>
             <CardMedia
                 component="img"
                 image={image}
