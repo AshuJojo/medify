@@ -26,6 +26,7 @@ const CareSection = () => {
                         zIndex: 2,
                         borderRadius: 2,
                         boxShadow: '0px 40px 40px -15px #94B6CE26',
+                        
                     }}>
                     <Box sx={{ display: 'flex', gap: 1, justifyContent: 'start', alignItems: 'center', pb: 0.5 }}>
                         <FaPhoneSquareAlt fontSize='2rem' color={theme.palette.primary.main} />

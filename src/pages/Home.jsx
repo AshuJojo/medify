@@ -9,6 +9,7 @@ import Specialisations from "../components/Specialisations"
 import DoctorsCarousel from "../components/DoctorsCarousel"
 import CareSection from "../components/sections/CareSection"
 import BlogSection from "../components/sections/BlogSection"
+import StatisticsSection from "../components/sections/StatisticsSection"
 
 
 
@@ -16,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <AlertBar />
+      <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
       <HeroSection />
       <Container>
@@ -69,12 +70,15 @@ const Home = () => {
           <DoctorsCarousel />
         </Box>
 
-      </Box> */}
+      </Box> 
       <CareSection />
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <BlogSection />
       </Box>
+       
+
+      <StatisticsSection />
     </>
   )
 }
