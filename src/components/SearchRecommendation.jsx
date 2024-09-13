@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import IconCard from "./IconCard"
+import IconCard from "./cards/IconCard"
 import { FaRegHospital, FaUserDoctor } from "react-icons/fa6"
 import { RiHospitalLine } from "react-icons/ri"
 import { PiAmbulance, PiPillDuotone } from "react-icons/pi"
@@ -41,12 +41,14 @@ const SearchRecommendation = () => {
     }, [selectedCardId]);
 
     return (
-        <Box my={2} sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1rem'
-        }}>
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '1rem',
+            }}
+        >
             {recommendations.map((recommendation) => {
                 return (
                     <IconCard
@@ -55,8 +57,9 @@ const SearchRecommendation = () => {
                         label={recommendation.label}
                         elevation={0}
                         sx={{
+                            flexGrow: 1,
                             bgcolor: ((recommendation.id === selectedCardId) ? '#2aa6ff14' : '#FAFBFE'),
-                            border: ((recommendation.id === selectedCardId) ? '1px solid #2AA7FF' : ''),       
+                            border: ((recommendation.id === selectedCardId) ? '1px solid #2AA7FF' : ''),
                         }}
                         onClick={() => { setSelectedCardId(recommendation.id) }}
                     />

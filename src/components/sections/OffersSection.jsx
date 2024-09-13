@@ -1,7 +1,7 @@
 import { Box, Container } from "@mui/material"
 import CustomCarousel from "../CustomCarousel";
 
-import OfferCard from "../OfferCard"
+import OfferCard from "../cards/OfferCard"
 import offer1 from '../../assets/images/offer1.png';
 import offer2 from '../../assets/images/offer2.png';
 

@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar"
 import LocationForm from "../components/forms/LocationForm"
 import SearchRecommendation from "../components/SearchRecommendation"
 import OffersSection from "../components/sections/OffersSection"
+import Specialisations from "../components/Specialisations"
 
 const Home = () => {
 
@@ -24,15 +25,11 @@ const Home = () => {
         }}>
           <LocationForm />
 
-
           <Box width="100%">
             <Typography variant="h6" textAlign={'center'}>You may be looking for</Typography>
             <SearchRecommendation />
           </Box>
-
         </Card>
-
-
       </Container>
 
       <Box
@@ -44,6 +41,14 @@ const Home = () => {
       >
         <OffersSection />
       </Box>
+
+      <Container py={2} sx={{ flexDirection: 'column' }}>
+        <Typography variant="h3" fontWeight={600} py='3.5rem'>Find By Specialisation</Typography>
+
+        <Box sx={{width: '100%'}}>
+          <Specialisations />
+        </Box>
+      </Container>
     </>
   )
 }

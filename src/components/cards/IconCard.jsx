@@ -1,7 +1,7 @@
 
 import { Box, Card, Typography, useTheme } from "@mui/material"
 
-const IconCard = ({ icon, label, ...props }) => {
+const IconCard = ({ icon, label, iconSize = '2.813rem', ...props }) => {
     const theme = useTheme();
 
     return (
@@ -9,16 +9,15 @@ const IconCard = ({ icon, label, ...props }) => {
             {...props}
             sx={{
                 ...props?.sx,
-                minWidth: 125,
-                minHeight: 100,
                 width: 'fit-content',
                 flexDirection: 'column',
                 borderRadius: '0.5rem',
-                p: '1rem'
+                p: '1rem',
+                py: '2rem',
             }}
         >
             <Box sx={{
-                fontSize: '2.813rem',
+                fontSize: iconSize,
                 color: theme.palette.primary.main,
 
                 display: 'flex',
