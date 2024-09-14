@@ -41,69 +41,77 @@ const DoctorsCarousel = () => {
     sticky: false
   }
 
+  const autoplayParams = {
+    delay: 0,
+  }
+
   return (
     <CustomCarousel
       slidesPerView={4}
       spaceBetween={30}
       loop={true}
+      autoplay={autoplayParams}
       freeMode={freeModeParams}
+      speed={5000}
     >
-      {data.map((doctor, idx) => {
-        return (
-          <Box
-            key={idx}
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 3
-            }}
-          >
-
-            <ImageCard image={doctor.image} alt={doctor.name}
-              imageSx={{
-                background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
-                pt: 4,
-                px: 4,
-                height: '22rem',
-                objectFit: 'contain'
-              }}
-
-              elevation={1}
+      {
+        data.map((doctor, idx) => {
+          return (
+            <Box
+              key={idx}
               sx={{
-                height: '24rem',
-                border: '0.5rem solid white',
-                borderRadius: '100% 100% 0 0',
-                boxShadow: '0px 15px 55px -10px #00000017',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 3
               }}
-            />
+            >
 
-            <Box textAlign='center'>
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 400,
-                  color: 'primary.dark'
+              <ImageCard image={doctor.image} alt={doctor.name}
+                imageSx={{
+                  background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
+                  pt: 4,
+                  px: 4,
+                  height: '22rem',
+                  objectFit: 'contain'
                 }}
-              >
-                {doctor.name}
-              </Typography>
 
-              <Typography
-                variant="subtitle1"
+                elevation={1}
                 sx={{
-                  fontWeight: 400,
-                  color: 'primary.main'
+                  height: '24rem',
+                  border: '0.5rem solid white',
+                  borderRadius: '100% 100% 0 0',
+                  boxShadow: '0px 15px 55px -10px #00000017',
                 }}
-              >
-                {doctor.spcacility}
-              </Typography>
+              />
+
+              <Box textAlign='center'>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 400,
+                    color: 'primary.dark'
+                  }}
+                >
+                  {doctor.name}
+                </Typography>
+
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    fontWeight: 400,
+                    color: 'primary.main'
+                  }}
+                >
+                  {doctor.spcacility}
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        )
-      })}
-    </CustomCarousel>
+          )
+        })
+      }
+    </CustomCarousel >
   )
 }
 

@@ -1,7 +1,7 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Pagination } from "swiper/modules"
+import { Autoplay, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const CustomCarousel = ({ children, ...props }) => {
@@ -12,7 +12,7 @@ const CustomCarousel = ({ children, ...props }) => {
             pagination={{
                 dynamicBullets: true,
             }}
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             className="mySwiper"
             style={{
                 paddingBottom: '3rem',
