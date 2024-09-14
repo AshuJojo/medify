@@ -1,5 +1,6 @@
 
 import { Box, Button, Container, Typography } from "@mui/material";
+import Logo from "./Logo";
 
 const Navbar = ({ bgColor = 'white', shadow = true }) => {
   return (
@@ -11,16 +12,7 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
       }}
     >
       <Container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Box sx={{
-          display: "flex",
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 2,
-          gap: 0.5,
-        }}>
-          <img src='/logo.svg' alt="Medify Logo" />
-          <Typography variant="h6" color="primary" sx={{ fontWeight: 700 }}>Medify</Typography>
-        </Box>
+        <Logo />
 
         <Box sx={{
           display: "flex",

@@ -12,6 +12,7 @@ import BlogSection from "../components/sections/BlogSection"
 import StatisticsSection from "../components/sections/StatisticsSection"
 import FAQsSection from "../components/sections/FAQsSection"
 import DownloadAppSection from "../components/sections/DownloadAppSection"
+import Footer from "../components/Footer"
 
 
 
@@ -19,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <AlertBar />
+      <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
       <HeroSection />
       <Container>
@@ -72,7 +73,7 @@ const Home = () => {
           <DoctorsCarousel />
         </Box>
 
-      </Box> 
+      </Box>
       <CareSection />
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
@@ -84,9 +85,10 @@ const Home = () => {
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <FAQsSection />
       </Box>
-        */}
 
       <DownloadAppSection />
+
+      <Footer />
     </>
   )
 }

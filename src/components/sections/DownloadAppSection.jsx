@@ -24,17 +24,17 @@ const Phone = () => {
 const DownloadAppSection = () => {
     const theme = useTheme();
     return (
-        <Container>
-            <Box width='40%' sx={{ position: 'relative', }}>
+        <Container sx={{paddingBottom: '15rem', position: 'relative', zIndex: -1}}>
+            <Box width='40%' sx={{ position: 'relative'}}>
                 <Box sx={{
                     position: 'absolute',
-                    top: 20
+                    top: 30
                 }}>
                     <Phone />
                 </Box>
                 <Box sx={{
                     position: 'absolute',
-                    top: -50,
+                    top: -30,
                     left: 150,
                     zIndex: -1
                 }}>
