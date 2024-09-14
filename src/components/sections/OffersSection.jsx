@@ -49,20 +49,18 @@ const OffersSection = () => {
             <Box width='100%'>
                 <CustomCarousel slidesPerView={3} spaceBetween={70}>
 
-                    {offers.map((offer, idx) => {
-                        return (
-                            <ImageCard
-                                key={idx}
-                                image={offer.image}
-                                alt={offer.alt}
-                                sx={{
-                                    borderRadius: 6,
-                                    padding: 0,
-                                    margin: 0,
-                                }}
-                            />
-                        )
-                    })}
+                    {offers.map((offer, idx) => (
+                        <ImageCard
+                            key={idx}
+                            image={offer.image}
+                            alt={offer.alt}
+                            sx={{
+                                borderRadius: 6,
+                                padding: 0,
+                                margin: 0,
+                            }}
+                        />
+                    ))}
 
                 </CustomCarousel>
             </Box>

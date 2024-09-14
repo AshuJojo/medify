@@ -10,6 +10,7 @@ import DoctorsCarousel from "../components/DoctorsCarousel"
 import CareSection from "../components/sections/CareSection"
 import BlogSection from "../components/sections/BlogSection"
 import StatisticsSection from "../components/sections/StatisticsSection"
+import FAQsSection from "../components/sections/FAQsSection"
 
 
 
@@ -76,9 +77,13 @@ const Home = () => {
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <BlogSection />
       </Box>
-       
 
       <StatisticsSection />
+       
+
+      <Box sx={{ bgcolor: "white", py: '3rem' }}>
+        <FAQsSection />
+      </Box>
     </>
   )
 }
