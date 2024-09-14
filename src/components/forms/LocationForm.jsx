@@ -4,10 +4,12 @@ import { useEffect, useState } from "react"
 import { BASE_URL } from "../../data/constants";
 import AutocompleteInput from "../AutoCompleteInput";
 import { FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const LocationForm = () => {
     const [state, setState] = useState(null);
     const [city, setCity] = useState(null);
+    const navigate = useNavigate();
 
     const fetchStates = async () => {
         try {
@@ -35,6 +37,15 @@ const LocationForm = () => {
         }
     }
 
+    const handleFormSubmit = () => {
+        if (!state || !city)
+            return;
+
+        console.log("navigatet")
+
+        navigate(`/hospitals?state=${state}&city=${city}`);
+    }
+
     useEffect(() => {
         if (!state)
             setCity(null);
@@ -55,7 +66,7 @@ const LocationForm = () => {
             <Box sx={{ width: '50%' }}>
                 <AutocompleteInput name="City" value={city} setValue={setCity} fetchData={fetchCities} fullWidth />
             </Box>
-            <Button startIcon={<FiSearch />} disabled={!state || !city}>Search</Button>
+            <Button startIcon={<FiSearch />} disabled={!state || !city} onClick={handleFormSubmit}>Search</Button>
         </Box>
     )
 }

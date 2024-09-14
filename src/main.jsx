@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <App />
+          <App />
       </ThemeProvider>
     </StyledEngineProvider>
   </StrictMode>
