@@ -11,6 +11,7 @@ import CareSection from "../components/sections/CareSection"
 import BlogSection from "../components/sections/BlogSection"
 import StatisticsSection from "../components/sections/StatisticsSection"
 import FAQsSection from "../components/sections/FAQsSection"
+import DownloadAppSection from "../components/sections/DownloadAppSection"
 
 
 
@@ -18,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <AlertBar />
+      {/* <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
       <HeroSection />
       <Container>
@@ -79,11 +80,13 @@ const Home = () => {
       </Box>
 
       <StatisticsSection />
-       
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <FAQsSection />
       </Box>
+        */}
+
+      <DownloadAppSection />
     </>
   )
 }
