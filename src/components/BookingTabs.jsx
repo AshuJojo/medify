@@ -142,7 +142,7 @@ const BookingTabs = ({ hospital }) => {
                     [`& .${tabsClasses.scrollButtons}`]: {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
-                    '& .css-1aky820-MuiButtonBase-root-MuiTab-root': {
+                    '& button[role="tab"]': {
                         flex: '0 0 33.3333%',
                         borderBottom: '4px solid #F0F0F5'
                     },
