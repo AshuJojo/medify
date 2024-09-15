@@ -2,13 +2,22 @@ import { Autocomplete, Box, CircularProgress, TextField } from "@mui/material";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
-const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
+const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholder, ...props }) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    console.log('value', value)
+
     const handleOpen = () => {
         setOpen(true);
+
+        if (data) {
+            console.log('AutoComplete INput data', data)
+            setOptions(data);
+            return;
+        }
+
         (async () => {
             setLoading(true);
             const data = await fetchData();
@@ -33,8 +42,10 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
             onClose={handleClose}
             options={options}
             loading={loading}
+            defaultValue=""
             value={value}
             onChange={(e, v) => { setValue(v) }}
+            getOptionLabel={(option) => { return (label ? option[label] : option) || "" }}
             disableClearable
             sx={{
                 '& .MuiAutocomplete-inputRoot': {
@@ -54,7 +65,7 @@ const AutocompleteInput = ({ name, value, setValue, fetchData, ...props }) => {
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    placeholder={name}
+                    placeholder={placeholder}
                     sx={{
                         bgcolor: '#FAFBFE',
                         border: '1px solid #F0F0F0',

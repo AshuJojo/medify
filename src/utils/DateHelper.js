@@ -47,3 +47,13 @@ export const getTimeFromDateObj = (date) => {
 
     return date.toLocaleTimeString('en-IN', timeOption).toUpperCase();
 }
+
+export const getDateFromDateObjWithoutWeekday = (date) => {
+    const dateOptions = {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    };
+
+    return date.toLocaleDateString('en-IN', dateOptions);
+}

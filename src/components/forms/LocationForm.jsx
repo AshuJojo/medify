@@ -61,10 +61,10 @@ const LocationForm = () => {
         }}
         >
             <Box sx={{ width: '50%' }}>
-                <AutocompleteInput name="State" value={state} setValue={setState} fetchData={fetchStates} fullWidth />
+                <AutocompleteInput value={state} setValue={setState} fetchData={fetchStates} placeholder="State" fullWidth />
             </Box>
             <Box sx={{ width: '50%' }}>
-                <AutocompleteInput name="City" value={city} setValue={setCity} fetchData={fetchCities} fullWidth />
+                <AutocompleteInput value={city} setValue={setCity} fetchData={fetchCities} placeholder="City" fullWidth />
             </Box>
             <Button startIcon={<FiSearch />} disabled={!state || !city} onClick={handleFormSubmit}>Search</Button>
         </Box>

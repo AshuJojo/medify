@@ -17,12 +17,6 @@ const Hospitals = () => {
     const state = urlSearchParams.get('state')
     const city = urlSearchParams.get('city')
 
-    console.log('state', state)
-
-    console.log('city', city)
-
-
-
     return (
         <>
             <AlertBar />

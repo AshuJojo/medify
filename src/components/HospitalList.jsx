@@ -14,7 +14,6 @@ const HospitalList = ({ state, city }) => {
         try {
             const res = await axios.get(`${BASE_URL}/data?state=${state}&city=${city}`);
 
-
             return res.data;
         } catch (e) {
             console.error(e);
