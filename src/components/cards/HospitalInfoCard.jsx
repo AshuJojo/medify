@@ -30,7 +30,7 @@ const HospitalInfoCard = ({ hospital }) => {
     }
 
     return (
-        <Card elevation={0} sx={{ borderRadius: 2, px: 2, flexDirection: 'column', width: 'auto' }}>
+        <Card elevation={0} sx={{ borderRadius: 2, px: 2, flexDirection: 'column', width: 'auto', mb: 2 }}>
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',

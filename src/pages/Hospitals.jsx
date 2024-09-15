@@ -1,4 +1,4 @@
-import { Box, Card, Container } from "@mui/material"
+import { Box, Card, Container, Typography } from "@mui/material"
 import AlertBar from "../components/AlertBar"
 import Footer from "../components/Footer"
 import LocationForm from "../components/forms/LocationForm"
@@ -42,7 +42,12 @@ const Hospitals = () => {
                 </Card>
             </Container>
 
-            <HospitalList state={state} city={city} />
+            {state && city && <HospitalList state={state} city={city} />}
+            {!state && !city &&
+                <Container sx={{justifyContent: 'start', alignItems: 'start', pt: 5, minHeight: 300}}>
+                    <Typography variant="h5" fontWeight={600}>No Hospital Found!!!</Typography>
+                </Container>
+            }
 
             <Box sx={{ bgcolor: "white", py: '3rem' }}>
                 <FAQsSection />

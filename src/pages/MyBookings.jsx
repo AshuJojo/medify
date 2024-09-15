@@ -1,22 +1,17 @@
 import { Box, Card, Container, Typography } from "@mui/material"
-import AlertBar from "../components/AlertBar"
-import Navbar from "../components/Navbar"
-import LocationForm from "../components/forms/LocationForm"
-import DownloadAppSection from "../components/sections/DownloadAppSection"
-import Footer from "../components/Footer"
 import { useEffect, useState } from "react"
-import HospitalSearchForm from "../components/forms/HospitalSearchForm"
+import AlertBar from "../components/AlertBar"
 import BookedHospitalList from "../components/BookedHospitalList"
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
+import HospitalSearchForm from "../components/forms/HospitalSearchForm"
+import DownloadAppSection from "../components/sections/DownloadAppSection"
 
 const MyBookings = () => {
   const [bookedHospitals, setBookedHospitals] = useState([]);
   const [bookingDatesJSON, setBookingDatesJSON] = useState([]);
   const [filteredHospitals, setFilteredHospital] = useState([]);
   const [filteredDates, setFilteredDates] = useState([]);
-
-  console.log('bookedHospitals', bookedHospitals)
-  console.log('bookingDates', bookingDatesJSON)
-  console.log('filteredHospitals', filteredHospitals)
 
   useEffect(() => {
     const bookingDates = bookingDatesJSON.filter((dates) => {
