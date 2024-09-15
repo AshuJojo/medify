@@ -2,8 +2,9 @@ import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-import { Box, Divider, IconButton, Typography } from '@mui/material';
+import { Box, Button, Divider, IconButton, Typography } from '@mui/material';
 import BookingConfirmModal from './BookingConfirmModal';
+import { getDateFromDateObj, getNextSevenDatesFromToday } from '../utils/DateHelper';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -22,70 +23,89 @@ const TabPanel = (props) => {
     );
 }
 
-const BookingTabs = () => {
-    const slots = {
+const BookingTabs = ({ hospital }) => {
+    const slotTimings = {
         morning: ['11:00 AM'],
         afternoon: ['12:00 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM'],
         evening: ['4:00 PM', '5:00 PM', '6:00 PM'],
     }
 
-    const [value, setValue] = useState(0);
-    const [sevenDatesFromToday, setSevenDatesFromToday] = useState([]);
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    const totalSlots = Object.keys(slotTimings).reduce((acc, slot) => (slotTimings[slot].length + acc), 0)
+
+    const [sevenDatesFromToday, setSevenDatesFromToday] = useState([]);
+
+    const [value, setValue] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [bookingDate, setBookingDate] = useState('');
-    const [bookingTime, setBookingTime] = useState('');
+
+    const [bookings, setBookings] = useState([]);
+
+    const [bookingDateJSON, setBookingDateJSON] = useState('');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const getNextSevenDatesFromToday = () => {
-        const dates = [];
-        const todayDate = new Date();
-        const dateOptions = {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-        };
+    const persistsHospitalBookingData = (bookingDateJSON) => {
+        const newBookings = [...bookings];
 
-        dates.push(todayDate.toLocaleDateString('en-IN', dateOptions));
+        newBookings.push(`${hospital["Provider ID"]}${bookingDateJSON}`);
 
-        for (let i = 0; i < 7; i++) {
-            const nextDate = new Date(dates[i]);
-            nextDate.setDate(nextDate.getDate() + 1);
-            dates.push(nextDate.toLocaleDateString('en-IN', dateOptions));
-        }
-
-        return dates;
+        setBookings(newBookings);
+        localStorage.setItem('bookings', JSON.stringify(newBookings));
     }
 
-    const handleTimeClick = (dateIdx, slot, timeIdx) => {
-        if (dateIdx === undefined || slot === undefined || timeIdx === undefined)
-            return;
+    const handleConfirmBooking = () => {
+        persistsHospitalBookingData(bookingDateJSON);
 
-        // const dateTimeStr = `${sevenDatesFromToday[dateIdx]} ${slots[slot][timeIdx]}`;
-        // const date = new Date(dateTimeStr);
+        setIsModalOpen(false);
+    }
 
-        // Tobe Implemented
-        // const dateStr = JSON.stringify(date);
-        // const retrieveDate = new Date(JSON.parse(dateStr));
-
-        // console.log('retrieveDate', retrieveDate)
-
-        const date = sevenDatesFromToday[dateIdx];
-        setBookingDate(date);
-
-        const time = slots[slot][timeIdx];
-        setBookingTime(time);
+    const handleTimeClick = (id) => {
+        setBookingDateJSON(id.substring(hospital["Provider ID"].length))
 
         setIsModalOpen(true)
     }
 
+    const getSlotsAvailableCount = (date) => {
+        const newDate = new Date(date);
+
+        const slotsOccupied = bookings.reduce((acc, booking) => {
+            const dateStart = hospital['Provider ID'].length;
+            const timeStart = booking.indexOf('T', dateStart);
+
+            const bookingDate = new Date(booking.slice(dateStart, timeStart));
+
+            if (getDateFromDateObj(bookingDate) === getDateFromDateObj(newDate)) {
+                return acc + 1
+            }
+            return acc;
+        }, 0)
+
+
+        return totalSlots - slotsOccupied;
+    }
+
+    const createTimeId = (date, time) => {
+        const dateTimeStr = `"${date} ${time}"`;
+
+        const newDate = new Date(dateTimeStr);
+
+        const jsonDate = JSON.stringify(newDate);
+
+        return `${hospital["Provider ID"]}${jsonDate.substring(1, jsonDate.length - 1)}`;
+    }
+
     useEffect(() => {
         if (sevenDatesFromToday.length === 0) {
-            setSevenDatesFromToday(getNextSevenDatesFromToday());
+            const nextSevenDates = getNextSevenDatesFromToday();
+
+            setSevenDatesFromToday(nextSevenDates);
+
+            const persistedBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+
+            setBookings(persistedBookings);
         }
     }, []);
 
@@ -108,7 +128,6 @@ const BookingTabs = () => {
                     }
                 }}
                 ScrollButtonComponent={(props) => {
-                    console.log('props', props)
                     if (
                         props.direction === "left"
                     ) {
@@ -150,7 +169,7 @@ const BookingTabs = () => {
                             label={
                                 <>
                                     <Typography fontWeight={700} color='#414146'>{tabLabel}</Typography>
-                                    <Typography color="#01A400" fontSize={12} mt={0.5}>{11} slots available</Typography>
+                                    <Typography color="#01A400" fontSize={12} mt={0.5}>{getSlotsAvailableCount(date)} slots available</Typography>
                                 </>
                             }
                             value={idx}
@@ -158,14 +177,12 @@ const BookingTabs = () => {
                         />
                     )
                 })}
-
-
             </Tabs>
 
 
             {sevenDatesFromToday.map((date, dateIdx) => (
                 <TabPanel key={dateIdx} value={value} index={dateIdx}>
-                    {Object.keys(slots).map((slot, slotIdx) => {
+                    {Object.keys(slotTimings).map((slot, slotIdx) => {
                         return (
                             <Box key={slotIdx}>
                                 <Box
@@ -178,27 +195,24 @@ const BookingTabs = () => {
                                         {slot}
                                     </Typography>
                                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, width: '100%' }}>
-                                        {slots[slot].map((time, timeIdx) => {
+                                        {slotTimings[slot].map((time, timeIdx) => {
+                                            const id = createTimeId(date, time);
                                             return (
-                                                <Typography
-                                                    key={slotIdx}
+                                                <Button
+                                                    id={id}
+                                                    key={timeIdx}
+                                                    variant='outlined'
                                                     color='primary'
                                                     borderColor='primary'
                                                     sx={{
                                                         border: '2px solid',
-                                                        py: 0.4,
-                                                        width: '5rem',
                                                         borderRadius: 1,
-                                                        textAlign: 'center',
-                                                        '&:hover': {
-                                                            bgcolor: '#2AA7FF',
-                                                            color: 'white'
-                                                        }
                                                     }}
-                                                    onClick={() => handleTimeClick(dateIdx, slot, timeIdx)}
+                                                    onClick={() => handleTimeClick(id)}
+                                                    disabled={bookings.includes(id)}
                                                 >
                                                     {time}
-                                                </Typography>
+                                                </Button>
                                             )
                                         })}
                                     </Box>
@@ -210,12 +224,12 @@ const BookingTabs = () => {
                 </TabPanel>
             ))}
 
-            {bookingDate &&
+            {bookingDateJSON &&
                 <BookingConfirmModal
                     isOpen={isModalOpen}
                     handleClose={() => { setIsModalOpen(false) }}
-                    bookingDate={bookingDate}
-                    bookingTime={bookingTime}
+                    bookingDateJSON={bookingDateJSON}
+                    handleConfirmBooking={handleConfirmBooking}
                 />
             }
         </>

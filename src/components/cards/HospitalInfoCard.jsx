@@ -5,6 +5,58 @@ import hospitalImage from '../../assets/images/hospital-img.png';
 import BookingTabs from '../BookingTabs';
 
 const HospitalInfoCard = () => {
+    const hospital = {
+        "Provider ID": "020024",
+        "Hospital Name": "CENTRAL PENINSULA GENERAL HOSPITAL",
+        "Address": "250 HOSPITAL PLACE",
+        "City": "SOLDOTNA",
+        "State": "Alaska",
+        "ZIP Code": 99669,
+        "County Name": "",
+        "Phone Number": 9072624404,
+        "Hospital Type": "Acute Care Hospitals",
+        "Hospital Ownership": "Voluntary non-profit - Other",
+        "Emergency Services": "Yes",
+        "Meets criteria for meaningful use of EHRs": "Y",
+        "Hospital overall rating": 3,
+        "Hospital overall rating footnote": "",
+        "Mortality national comparison": "Same as the national average",
+        "Mortality national comparison footnote": "",
+        "Safety of care national comparison": "Same as the national average",
+        "Safety of care national comparison footnote": "",
+        "Readmission national comparison": "Same as the national average",
+        "Readmission national comparison footnote": "",
+        "Patient experience national comparison": "Same as the national average",
+        "Patient experience national comparison footnote": "",
+        "Effectiveness of care national comparison": "Same as the national average",
+        "Effectiveness of care national comparison footnote": "",
+        "Timeliness of care national comparison": "Below the national average",
+        "Timeliness of care national comparison footnote": "",
+        "Efficient use of medical imaging national comparison": "Same as the national average",
+        "Efficient use of medical imaging national comparison footnote": ""
+    }
+
+    const formatHospitalAddress = (hospital) => {
+        if (!hospital)
+            return
+
+        let address = '';
+
+        if (hospital['Address'])
+            address += `${hospital['Address']}, `
+        if (hospital['City'])
+            address += `${hospital['City']}, `
+        if (hospital['State'])
+            address += `${hospital['State']}, `
+        if (hospital['County Name'])
+            address += `${hospital['County Name']}, `
+
+        if (hospital['ZIP Code'])
+            address += `${hospital['ZIP Code']}`
+
+        return `${address}`;
+    }
+
     return (
         <Card elevation={0} sx={{ borderRadius: 2, px: 2, flexDirection: 'column', width: 'auto' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -31,10 +83,12 @@ const HospitalInfoCard = () => {
                         flexDirection: 'column'
                     }}>
                         <Typography variant="h6" color='primary' fontWeight={600} pb={1}>
-                            Fortis Hospital Richmond Road
+                            {hospital['Hospital Name']}
                         </Typography>
-                        <Typography variant="subtitle2" fontWeight={700} >Banglore, Karnataka</Typography>
-                        <Typography>Smilessence Center for Advanced Dentistry + 1 mofareaerav</Typography>
+                        <Typography variant="subtitle2" fontWeight={700} >
+                            {formatHospitalAddress(hospital)}
+                        </Typography>
+                        <Typography>{hospital['Hospital Ownership']}</Typography>
                         <Typography variant="body1" color="success" fontWeight={700}>
                             FREE
                             <Typography
@@ -61,7 +115,7 @@ const HospitalInfoCard = () => {
                         >
                             <AiFillLike color="white" style={{ verticalAlign: 'inherit' }} />
                             <Typography display="inline" color="white" ml={0.5}>
-                                5
+                                {hospital['Hospital overall rating']}
                             </Typography>
                         </Box>
                     </Box>
@@ -81,9 +135,9 @@ const HospitalInfoCard = () => {
                 </CardActions>
             </Box>
 
-            <Divider sx={{border: '1px solid #F0F0F5', width: '100%'}}/>
+            <Divider sx={{ border: '1px solid #F0F0F5', width: '100%' }} />
 
-            <BookingTabs />
+            <BookingTabs hospital={hospital} />
         </Card>
     )
 }

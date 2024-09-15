@@ -1,19 +1,15 @@
 import { Box, Button, Modal, Typography } from "@mui/material"
+import { getDateFromDateObj, getTimeFromDateObj } from "../utils/DateHelper";
 
-const BookingConfirmModal = ({ isOpen, handleClose, bookingDate, bookingTime }) => {
+const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfirmBooking }) => {
 
-    // const date = new Date(bookingDate);
 
-    const handleBookingConfirm = () => {
-        const dateTimeStr = `${bookingDate} ${bookingTime}`;
-        const date = new Date(dateTimeStr);
+    console.log('bookingDateJSON', bookingDateJSON);
 
-        const dateStr = JSON.stringify(date);
-        const retrieveDate = new Date(JSON.parse(dateStr));
+    const bookingDate = new Date(JSON.parse(`"${bookingDateJSON}"`));
 
-        console.log('retrieveDate', retrieveDate)
-        handleClose();
-    }
+    const date = getDateFromDateObj(bookingDate);
+    const time = getTimeFromDateObj(bookingDate);
 
     return (
         <Modal
@@ -44,7 +40,7 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDate, bookingTime }) 
                     Confirm Booking
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Are you sure you sure that you want to book your appointment on <span style={{ fontWeight: 'bold' }}>{bookingDate}</span> at <span style={{ fontWeight: 'bold' }}>{bookingTime}</span>?
+                    Are you sure you sure that you want to book your appointment on <span style={{ fontWeight: 'bold' }}>{date}</span> at <span style={{ fontWeight: 'bold' }}>{time}</span>?
                 </Typography>
                 <Box width='100%' sx={{
                     display: 'flex',
@@ -52,7 +48,7 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDate, bookingTime }) 
                     gap: 2,
                     mt: 2
                 }}>
-                    <Button onClick={handleBookingConfirm}>Yes</Button>
+                    <Button onClick={handleConfirmBooking}>Yes</Button>
                     <Button variant="outlined" onClick={handleClose}>Cancel</Button>
                 </Box>
             </Box>
