@@ -7,8 +7,22 @@ import DownloadAppSection from "../components/sections/DownloadAppSection"
 import FAQsSection from "../components/sections/FAQsSection"
 
 import HospitalList from "../components/HospitalList"
+import { useLocation } from "react-router-dom"
 
 const Hospitals = () => {
+    const location = useLocation();
+
+    const urlSearchParams = new URLSearchParams(location.search);
+
+    const state = urlSearchParams.get('state')
+    const city = urlSearchParams.get('city')
+
+    console.log('state', state)
+
+    console.log('city', city)
+
+
+
     return (
         <>
             <AlertBar />
@@ -34,7 +48,7 @@ const Hospitals = () => {
                 </Card>
             </Container>
 
-            <HospitalList />
+            <HospitalList state={state} city={city} />
 
             <Box sx={{ bgcolor: "white", py: '3rem' }}>
                 <FAQsSection />

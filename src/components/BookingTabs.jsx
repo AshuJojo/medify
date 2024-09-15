@@ -5,6 +5,7 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { Box, Button, Divider, IconButton, Typography } from '@mui/material';
 import BookingConfirmModal from './BookingConfirmModal';
 import { getDateFromDateObj, getNextSevenDatesFromToday } from '../utils/DateHelper';
+import { useNavigate } from 'react-router-dom';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -24,6 +25,8 @@ const TabPanel = (props) => {
 }
 
 const BookingTabs = ({ hospital }) => {
+    const navigate = useNavigate();
+
     const slotTimings = {
         morning: ['11:00 AM'],
         afternoon: ['12:00 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM'],
@@ -40,6 +43,7 @@ const BookingTabs = ({ hospital }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [bookings, setBookings] = useState([]);
+    const [persistedHospitals, setPersistedHospitals] = useState([]);
 
     const [bookingDateJSON, setBookingDateJSON] = useState('');
 
@@ -53,7 +57,18 @@ const BookingTabs = ({ hospital }) => {
         newBookings.push(`${hospital["Provider ID"]}${bookingDateJSON}`);
 
         setBookings(newBookings);
+
+        if (persistedHospitals.findIndex((item) => item["Provider ID"] === hospital["Provider ID"]) === -1) {
+            const newPersistedHospitals = [...persistedHospitals];
+            newPersistedHospitals.push(hospital);
+
+            setPersistedHospitals(newPersistedHospitals);
+            localStorage.setItem('hospitals', JSON.stringify(newPersistedHospitals));
+        }
+
         localStorage.setItem('bookings', JSON.stringify(newBookings));
+
+        navigate('/mybookings')
     }
 
     const handleConfirmBooking = () => {
@@ -77,7 +92,7 @@ const BookingTabs = ({ hospital }) => {
 
             const bookingDate = new Date(booking.slice(dateStart, timeStart));
 
-            if (getDateFromDateObj(bookingDate) === getDateFromDateObj(newDate)) {
+            if (hospital['Provider ID'] === booking.slice(0, dateStart) && getDateFromDateObj(bookingDate) === getDateFromDateObj(newDate)) {
                 return acc + 1
             }
             return acc;
@@ -106,6 +121,10 @@ const BookingTabs = ({ hospital }) => {
             const persistedBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
 
             setBookings(persistedBookings);
+
+            const storedHospitals = JSON.parse(localStorage.getItem('hospitals') || '[]');
+
+            setPersistedHospitals(storedHospitals);
         }
     }, []);
 
@@ -124,7 +143,11 @@ const BookingTabs = ({ hospital }) => {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
                     '& .css-1aky820-MuiButtonBase-root-MuiTab-root': {
-                        flex: '0 0 33.3333%'
+                        flex: '0 0 33.3333%',
+                        borderBottom: '4px solid #F0F0F5'
+                    },
+                    '& .css-thcqs7-MuiTabs-indicator': {
+                        height: '4px'
                     }
                 }}
                 ScrollButtonComponent={(props) => {

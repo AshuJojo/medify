@@ -3,38 +3,10 @@ import { Button, Card, CardActions, CardContent, Box, Typography, Divider } from
 import { AiFillLike } from "react-icons/ai"
 import hospitalImage from '../../assets/images/hospital-img.png';
 import BookingTabs from '../BookingTabs';
+import { useState } from 'react';
 
-const HospitalInfoCard = () => {
-    const hospital = {
-        "Provider ID": "020024",
-        "Hospital Name": "CENTRAL PENINSULA GENERAL HOSPITAL",
-        "Address": "250 HOSPITAL PLACE",
-        "City": "SOLDOTNA",
-        "State": "Alaska",
-        "ZIP Code": 99669,
-        "County Name": "",
-        "Phone Number": 9072624404,
-        "Hospital Type": "Acute Care Hospitals",
-        "Hospital Ownership": "Voluntary non-profit - Other",
-        "Emergency Services": "Yes",
-        "Meets criteria for meaningful use of EHRs": "Y",
-        "Hospital overall rating": 3,
-        "Hospital overall rating footnote": "",
-        "Mortality national comparison": "Same as the national average",
-        "Mortality national comparison footnote": "",
-        "Safety of care national comparison": "Same as the national average",
-        "Safety of care national comparison footnote": "",
-        "Readmission national comparison": "Same as the national average",
-        "Readmission national comparison footnote": "",
-        "Patient experience national comparison": "Same as the national average",
-        "Patient experience national comparison footnote": "",
-        "Effectiveness of care national comparison": "Same as the national average",
-        "Effectiveness of care national comparison footnote": "",
-        "Timeliness of care national comparison": "Below the national average",
-        "Timeliness of care national comparison footnote": "",
-        "Efficient use of medical imaging national comparison": "Same as the national average",
-        "Efficient use of medical imaging national comparison footnote": ""
-    }
+const HospitalInfoCard = ({ hospital }) => {
+    const [isBookingTabOpen, setIsBookingTabOpen] = useState(false);
 
     const formatHospitalAddress = (hospital) => {
         if (!hospital)
@@ -59,7 +31,12 @@ const HospitalInfoCard = () => {
 
     return (
         <Card elevation={0} sx={{ borderRadius: 2, px: 2, flexDirection: 'column', width: 'auto' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+
+            }}>
                 <Box sx={{
                     bgcolor: '#8CCFFF',
                     padding: 2.5,
@@ -131,13 +108,15 @@ const HospitalInfoCard = () => {
                     mr: 2
                 }}>
                     <Typography color="#01A400" fontWeight={500}>Available Today</Typography>
-                    <Button sx={{ whiteSpace: 'nowrap' }}>Book FREE Center Visit</Button>
+                    <Button sx={{ whiteSpace: 'nowrap', width: '12rem' }} onClick={() => { setIsBookingTabOpen(!isBookingTabOpen) }}>
+                        {isBookingTabOpen ? 'Close Booking Tab' : 'Book FREE Center Visit'}
+                    </Button>
                 </CardActions>
             </Box>
 
             <Divider sx={{ border: '1px solid #F0F0F5', width: '100%' }} />
 
-            <BookingTabs hospital={hospital} />
+            {isBookingTabOpen && <BookingTabs hospital={hospital} />}
         </Card>
     )
 }
