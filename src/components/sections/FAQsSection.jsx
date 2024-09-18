@@ -104,10 +104,10 @@ const FAQsSection = () => {
                             <AccordionSummary
                                 expandIcon={<FaPlus color={theme.palette.primary.main} />}
                                 sx={{
-                                    '& .css-eqpfi5-MuiAccordionSummary-content': {
+                                    '& .MuiAccordionSummary-contentGutters': {
                                         m: 0,
                                     },
-                                    '& .css-yw020d-MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+                                    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
                                         transform: 'rotate(45deg)',
                                     },
 
@@ -118,7 +118,7 @@ const FAQsSection = () => {
                             <AccordionDetails sx={{
                                 pt: 0
                             }}>
-                                <Typography variant="subtitle1">faq.answer</Typography>
+                                <Typography variant="subtitle1">{faq.answer}</Typography>
                             </AccordionDetails>
                         </Accordion>
                     ))}

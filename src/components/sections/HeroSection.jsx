@@ -5,21 +5,30 @@ import HeroImage from '../../assets/images/hero-image.png';
 const HeroSection = () => {
     const theme = useTheme();
     return (
-        <Container sx={{ justifyContent: 'space-between', alignItems: 'start' }}>
-            <Box sx={{ width: '50%', alignSelf: 'center', mt: 20, mb: 5 }}>
+        <Container sx={{
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 2,
+        }}>
+            <Box sx={{
+                width: '50%',
+                alignSelf: 'center',
+                // mt: 20,
+                // mb: 5
+            }}>
                 <Typography
-                    variant="h4"
+                    // variant="h4"
                     sx={{
-                        fontSize: '1.938em',
+                        fontSize: '1.938rem',
                         fontWeight: 500
                     }}
                 >
                     Skip the travel! Find Online
                 </Typography>
                 <Typography
-                    variant="h3"
+                    // variant="h3"
                     sx={{
-                        fontSize: '3.5em',
+                        fontSize: '3.5rem',
                         fontWeight: 700,
                     }}
                 >
@@ -38,15 +47,20 @@ const HeroSection = () => {
 
                 <Button sx={{ px: 3, my: 2 }}>Find Centers</Button>
             </Box>
-            <Box sx={{ width: '50%', position: 'relative' }}>
+            <Box sx={{
+                display: { xs: 'none', md: 'flex' },
+                width: '50%',
+                pt: 2
+            }}>
                 <img src={HeroImage}
                     style={{
                         width: '100%',
                         height: 'auto',
                         objectFit: 'contain',
-                        position: 'absolute',
-                        top: 50,
-                        zIndex: -1
+                        // position: 'absolute',
+                        // top: 0,
+                        // bottom: 0,
+                        // zIndex: -1
                     }}
                     alt='Hero Image' />
             </Box>
