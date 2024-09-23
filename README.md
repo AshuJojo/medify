@@ -1,5 +1,5 @@
 
-# Bot AIv
+# Medify
 
 Please view live application at [Medify](https://medify-dun.vercel.app/).
 
