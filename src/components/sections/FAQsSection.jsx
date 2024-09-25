@@ -51,13 +51,18 @@ const FAQsSection = () => {
                         image={CareIcon}
                         alt="Care Icon"
                         sx={{
-                            width: '2rem',
+                            width: '4rem',
+                            height: '4rem',
                             p: '1rem',
                             borderRadius: '50rem',
                             position: 'absolute',
                             zIndex: 1,
                             right: 10,
                             top: 150
+                        }}
+                        imageSx={{
+                            width: '2.5rem',
+                            height: '2.5rem',
                         }}
                     />
 

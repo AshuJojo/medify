@@ -21,6 +21,7 @@ const Footer = () => {
     ]
 
     const theme = useTheme();
+
     return (
         <Box sx={{
             bgcolor: 'primary.dark',
@@ -49,40 +50,19 @@ const Footer = () => {
                         <Box sx={{
                             display: 'flex',
                             gap: 2,
-                            pb: 2
+                            pb: 2,
+                            '& >svg': {
+                                color: theme.palette.primary.main,
+                                borderRadius: 50,
+                                background: 'white',
+                                padding: 0.5,
+                                fontSize: 24
+                            }
                         }}>
-                            <FaFacebookF
-                                style={{
-                                    background: 'white',
-                                    border: '10px solid white',
-                                    borderRadius: 50,
-                                    color: theme.palette.primary.main
-                                }}
-                            />
-                            <FaTwitter
-                                style={{
-                                    background: 'white',
-                                    border: '10px solid white',
-                                    borderRadius: 50,
-                                    color: theme.palette.primary.main
-                                }}
-                            />
-                            <FaYoutube
-                                style={{
-                                    background: 'white',
-                                    border: '10px solid white',
-                                    borderRadius: 50,
-                                    color: theme.palette.primary.main
-                                }}
-                            />
-                            <FaPinterest
-                                style={{
-                                    background: 'white',
-                                    border: '10px solid white',
-                                    borderRadius: 50,
-                                    color: theme.palette.primary.main
-                                }}
-                            />
+                            <FaFacebookF />
+                            <FaTwitter />
+                            <FaYoutube />
+                            <FaPinterest />
                         </Box>
                     </Box>
                     <Box
