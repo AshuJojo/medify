@@ -80,6 +80,7 @@ const Specialisations = () => {
                     }}
                 >
                     <IconCard
+                    
                         icon={item.icon}
                         label={item.label}
                         elevation={0}   
