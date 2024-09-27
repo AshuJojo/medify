@@ -24,7 +24,7 @@ const Home = () => {
       <Navbar bgColor={'inherit'} shadow={false} />
       <HeroSection />
       <Container
-      sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
+        sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
       >
         <Card sx={{
           py: '2.5rem',
@@ -45,7 +45,7 @@ const Home = () => {
         </Card>
       </Container>
 
-      {/* <Box
+      <Box
         sx={{
           backgroundColor: 'white',
           pt: '8rem',
@@ -54,7 +54,7 @@ const Home = () => {
       >
         <OffersSection />
       </Box>
-
+      {/*
       <Container sx={{ pb: 6, flexDirection: 'column' }}>
         <Typography variant="h3" fontWeight={600} py='3.5rem'>Find By Specialisation</Typography>
 

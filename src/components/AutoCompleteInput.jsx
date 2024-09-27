@@ -7,8 +7,6 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
     const [options, setOptions] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    console.log('value', value)
-
     const handleOpen = () => {
         setOpen(true);
 

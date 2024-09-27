@@ -1,9 +1,9 @@
-import IconCard from "./cards/IconCard"
+import { alpha, Stack, useTheme } from '@mui/material'
+import { useState } from "react"
 import { FaRegHospital, FaUserDoctor } from "react-icons/fa6"
-import { RiHospitalLine } from "react-icons/ri"
 import { PiAmbulance, PiPillDuotone } from "react-icons/pi"
-import { useEffect, useState } from "react"
-import { alpha, Stack, useTheme } from '@mui/material';
+import { RiHospitalLine } from "react-icons/ri"
+import IconCard from "./cards/IconCard"
 
 const SearchRecommendation = () => {
     const theme = useTheme();
@@ -38,10 +38,6 @@ const SearchRecommendation = () => {
         },
     ];
 
-    useEffect(() => {
-        console.log('selectedCard ', selectedCardId);
-    }, [selectedCardId]);
-
     return (
         <Stack direction="row" gap={2} flexWrap='wrap' justifyContent='center'>
             {recommendations.map((recommendation) => {
@@ -51,7 +47,6 @@ const SearchRecommendation = () => {
                         icon={recommendation.icon}
                         label={recommendation.label}
                         elevation={0}
-                        iconColor={theme.palette.primary.main}
                         sx={{
                             minWidth: '9rem',
                             maxWidth: '12rem',

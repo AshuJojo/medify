@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material"
+import { Box, Container, useMediaQuery, useTheme } from "@mui/material";
 import CustomCarousel from "../CustomCarousel";
 
 import offer1 from '../../assets/images/offers/offer1.png';
@@ -44,11 +44,16 @@ const OffersSection = () => {
             alt: 'Offer 1'
         },
     ]
+
+    const theme = useTheme();
+    const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'));
+    const isTablet = useMediaQuery((theme.breakpoints.between('sm', 'md')));
+    const slidesPerView = (isLargeScreen ? 3 : (isTablet ? 2 : 1));
+
     return (
         <Container sx={{ padding: '1rem' }}>
             <Box width='100%'>
-                <CustomCarousel slidesPerView={3} spaceBetween={70}>
-
+                <CustomCarousel slidesPerView={slidesPerView} spaceBetween={70}>
                     {offers.map((offer, idx) => (
                         <ImageCard
                             key={idx}
