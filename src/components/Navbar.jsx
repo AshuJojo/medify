@@ -1,5 +1,5 @@
 
-import { Box, Button, Container, Divider, Drawer, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Button, Container, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Logo from "./Logo";
 import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -53,21 +53,21 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
 
         <Divider sx={{ width: '100%' }} />
         <Box sx={{
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
           alignItems: 'center',
           gap: 2,
           mt: 2
-        }}>
+        }} >
           <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Find Doctors</Typography>
           <CustomNavLink to="/hospitals" theme={theme}><Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }} >Hospital</Typography></CustomNavLink>
           <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Medicines</Typography>
           <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Surgeries</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Software for Provider</Typography>
           <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Facilities</Typography>
           <CustomNavLink to="/mybookings" borderBottom={false} theme={theme} width="100%">
-            <Button sx={{ width: '100%' }}>
+            <Button variant='contained' fullWidth disableElevation>
               My Bookings
             </Button>
           </CustomNavLink>
@@ -77,41 +77,39 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
   );
 
   return (
-    <Box
-      component={'nav'}
-      sx={{
-        backgroundColor: bgColor,
-        boxShadow: shadow ? 2 : 0,
-      }}
-    >
-      <Container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <CustomNavLink to="/" borderBottom={false} theme={theme}><Logo /></CustomNavLink>
+    <Box component='nav' sx={{ bgcolor: bgColor, boxShadow: shadow ? 2 : 0 }}>
+      <Container>
+        <Stack direction='row' justifyContent='space-between'>
+          <CustomNavLink to="/" borderBottom={false} theme={theme}><Logo /></CustomNavLink>
 
-        <Box sx={{
-          display: { xs: 'none', md: "flex" },
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          gap: { md: 2, lg: 4 },
-        }}>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Find Doctors</Typography>
-          <CustomNavLink to="/hospitals" theme={theme}><Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }} >Hospital</Typography></CustomNavLink>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Medicines</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Surgeries</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Software for Provider</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Facilities</Typography>
-          <CustomNavLink to="/mybookings" borderBottom={false} theme={theme}><Button>My Bookings</Button></CustomNavLink>
-        </Box>
-        <Box sx={{
-          display: { xs: 'flex', md: 'none' },
-          alignItems: 'center'
-        }}>
-          <GiHamburgerMenu fontSize={30} color={theme.palette.primary.main} onClick={openDrawer} />
-        </Box>
-      </Container >
-      <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        {drawer}
-      </Drawer>
-    </Box >
+          <Box sx={{
+            display: { xs: 'none', md: "flex" },
+            alignItems: 'center',
+            gap: { md: 4, lg: 4 },
+          }}>
+            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Find Doctors</Typography>
+            <CustomNavLink to="/hospitals" theme={theme}>
+              <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }} >Hospital</Typography>
+            </CustomNavLink>
+            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Medicines</Typography>
+            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Surgeries</Typography>
+            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Facilities</Typography>
+            <CustomNavLink to="/mybookings" borderBottom={false} theme={theme}>
+              <Button variant="contained" disableElevation>My Bookings</Button>
+            </CustomNavLink>
+          </Box>
+          <Box sx={{
+            display: { xs: 'flex', md: 'none' },
+            alignItems: 'center'
+          }}>
+            <GiHamburgerMenu fontSize={30} color={theme.palette.primary.main} onClick={openDrawer} />
+          </Box>
+        </Stack>
+        <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+          {drawer}
+        </Drawer>
+      </Container>
+    </Box>
   )
 }
 

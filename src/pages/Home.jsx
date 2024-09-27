@@ -22,8 +22,8 @@ const Home = () => {
     <>
       <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
-      <HeroSection />
-      <Container>
+      {/* <HeroSection /> */}
+      {/* <Container>
         <Card sx={{
           py: '2.5rem',
           px: '2.188rem',
@@ -88,7 +88,7 @@ const Home = () => {
 
       <DownloadAppSection />
 
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

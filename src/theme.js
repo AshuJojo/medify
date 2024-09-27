@@ -2,6 +2,9 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 
 
 const theme = createTheme({
+    typography: {
+        fontFamily: '"Poppins", sans-serif'
+    },
     palette: {
         primary: {
             main: '#2AA8FF',
@@ -11,47 +14,73 @@ const theme = createTheme({
     },
     components: {
         MuiButton: {
-            defaultProps: {
-                variant: 'contained',
-                color: 'primary',
-            },
+            // defaultProps: {
+            //     variant: 'contained',
+            //     color: 'primary',
+            // },
+            // styleOverrides: {
+            //     root: {
+            //         fontSize: '0.8rem',
+            //         fontWeight: 400,
+            //         lineHeight: '1.5rem',
+            //         borderRadius: 8,
+            //         boxShadow: 'none',
+            //         '&:hover': {
+            //             boxShadow: 0
+            //         }
+            //     },
+            // }
+
             styleOverrides: {
                 root: {
-                    fontSize: '0.8rem',
-                    fontWeight: 400,
-                    lineHeight: '1.5rem',
-                    borderRadius: 8,
-                    boxShadow: 'none',
-                    '&:hover': {
-                        boxShadow: 0
-                    }
+                    borderRadius: "8px",
+                    textTransform: "none",
                 },
-            }
+                contained: {
+                    color: "#fff",
+
+                },
+            },
         },
         MuiTypography: {
-            defaultProps: {
-                fontFamily: '"Poppins", sans-serif'
-            }
-        },
-        MuiCard: {
             styleOverrides: {
-                root: {
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }
-            }
+                h1: {
+                    color: "#000000",
+                    fontSize: "56px",
+                    fontWeight: "700",
+                },
+                h2: {
+                    color: "#1B3C74",
+                    fontWeight: "600",
+                    fontSize: "48px",
+                    lineHeight: 1.2,
+                },
+                h3: {
+                    color: "#102851",
+                    fontSize: "30px",
+                    fontWeight: "500",
+                },
+            },
         },
-        MuiContainer: {
-            styleOverrides: {
-                root: {
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }
-            }
-        },
+        // MuiCard: {
+        //     styleOverrides: {
+        //         root: {
+        //             width: '100%',
+        //             display: 'flex',
+        //             justifyContent: 'center',
+        //             alignItems: 'center',
+        //         }
+        //     }
+        // },
+        // MuiContainer: {
+        //     styleOverrides: {
+        //         root: {
+        //             display: 'flex',
+        //             justifyContent: 'center',
+        //             alignItems: 'center'
+        //         }
+        //     }
+        // },
     },
     breakpoints: {
         values: {
