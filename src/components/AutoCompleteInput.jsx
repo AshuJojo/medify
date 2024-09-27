@@ -47,13 +47,7 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
             onChange={(e, v) => { setValue(v) }}
             getOptionLabel={(option) => { return (label ? option[label] : option) || "" }}
             disableClearable
-            renderOption={(props, option) => {
-                return (
-                    <li  {...props} key={option}>
-                        <Typography variant="body2">{option}</Typography>
-                    </li>
-                )
-            }}
+            renderOption={(props, option) => <Typography {...props} key={option} variant="body2">{option}</Typography>}
             renderInput={(params) => (
                 <TextField
                     {...params}

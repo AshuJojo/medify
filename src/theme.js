@@ -7,6 +7,8 @@ const theme = createTheme({
             main: '#2AA8FF',
             dark: '#1B3C74',
             contrastText: '#ffffff',
+            black: '000000',
+            white: '#FFFFFF',
         },
     },
     typography: {
@@ -18,14 +20,24 @@ const theme = createTheme({
         },
         h2: {
             color: "#1B3C74",
-            fontWeight: "600",
+            fontWeight: 600,
             fontSize: "48px",
             lineHeight: 1.2,
         },
         h3: {
             color: "#102851",
             fontSize: "30px",
-            fontWeight: "500",
+            fontWeight: 500,
+        },
+        h4: {
+            color: '#102851',
+            fontWeight: 500,
+            fontSize: '20px'
+        },
+        h5: {
+            color: '#ABB6C7',
+            fontWeight: 400,
+            fontSize: '18px'
         },
         body1: {
             fontSize: '20px',

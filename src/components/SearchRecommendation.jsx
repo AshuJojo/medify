@@ -1,11 +1,13 @@
-import Grid from '@mui/material/Grid2';
 import IconCard from "./cards/IconCard"
 import { FaRegHospital, FaUserDoctor } from "react-icons/fa6"
 import { RiHospitalLine } from "react-icons/ri"
 import { PiAmbulance, PiPillDuotone } from "react-icons/pi"
 import { useEffect, useState } from "react"
+import { alpha, Stack, useTheme } from '@mui/material';
 
 const SearchRecommendation = () => {
+    const theme = useTheme();
+
     const [selectedCardId, setSelectedCardId] = useState(3);
 
     const recommendations = [
@@ -41,37 +43,31 @@ const SearchRecommendation = () => {
     }, [selectedCardId]);
 
     return (
-        <Grid
-            container
-            spacing={2}
-            width='100%'
-        >
+        <Stack direction="row" gap={2} flexWrap='wrap' justifyContent='center'>
             {recommendations.map((recommendation) => {
                 return (
-                    <Grid
-                        size={2}
-                        sx={{
-                            display: 'flex',
-                        }}
+                    <IconCard
                         key={recommendation.id}
-                        flexGrow={1}
-                    >
-                        <IconCard
-                            icon={recommendation.icon}
-                            label={recommendation.label}
-                            elevation={0}
-                            sx={{
-                                flexGrow: 1,
-                                bgcolor: ((recommendation.id === selectedCardId) ? '#2aa6ff14' : '#FAFBFE'),
-                                border: ((recommendation.id === selectedCardId) ? '1px solid #2AA7FF' : ''),
-                            }}
-                            onClick={() => { setSelectedCardId(recommendation.id) }}
-                        />
-                    </Grid>
+                        icon={recommendation.icon}
+                        label={recommendation.label}
+                        elevation={0}
+                        iconColor={theme.palette.primary.main}
+                        sx={{
+                            minWidth: '9rem',
+                            maxWidth: '12rem',
+                            flex: '1 1 0px',
+                            bgcolor: ((recommendation.id === selectedCardId) ? alpha(theme.palette.primary.main, 0.08) : '#FAFBFE'),
+                            border: ((recommendation.id === selectedCardId) ? `1px solid ${theme.palette.primary.main}` : ''),
+                        }}
+                        textSx={{
+                            color: ((recommendation.id === selectedCardId) ? '#2AA7FF' : ''),
+                            fontWeight: ((recommendation.id === selectedCardId) ? 600 : 400),
+                        }}
+                        onClick={() => { setSelectedCardId(recommendation.id) }}
+                    />
                 )
-            }
-            )}
-        </Grid>
+            })}
+        </Stack>
     )
 }
 

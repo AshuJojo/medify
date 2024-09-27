@@ -20,11 +20,11 @@ const Home = () => {
 
   return (
     <>
-      {/* <AlertBar /> */}
+      <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Container
-        // sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
+      sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
       >
         <Card sx={{
           py: '2.5rem',
@@ -34,11 +34,11 @@ const Home = () => {
           position: 'relative',
           zIndex: 99
         }}>
-          <Stack direction='column' spacing={4}>
+          <Stack direction='column' spacing={6}>
             <LocationForm />
 
             <Box width="100%">
-              <Typography variant="h6" textAlign={'center'}>You may be looking for</Typography>
+              <Typography variant="h4" textAlign={'center'} mb={2}>You may be looking for</Typography>
               <SearchRecommendation />
             </Box>
           </Stack>

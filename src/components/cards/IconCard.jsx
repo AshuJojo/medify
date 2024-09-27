@@ -1,7 +1,7 @@
 
-import { Box, Card, Typography, useTheme } from "@mui/material"
+import { Box, Card, Stack, Typography, useTheme } from "@mui/material"
 
-const IconCard = ({ icon, label, iconSize = '2.813rem', ...props }) => {
+const IconCard = ({ icon, label, iconSize = '2.813rem', textSx, ...props }) => {
     const theme = useTheme();
 
     return (
@@ -9,27 +9,20 @@ const IconCard = ({ icon, label, iconSize = '2.813rem', ...props }) => {
             {...props}
             sx={{
                 ...props?.sx,
-                flexDirection: 'column',
                 borderRadius: '0.5rem',
                 p: '1rem',
                 py: '2rem',
             }}
         >
-            <Box sx={{
-                fontSize: iconSize,
-                color: theme.palette.primary.main,
-
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-                {icon}
-            </Box>
-            <Typography
-                sx={{ color: '#ABB6C7', }}
-            >
-                {label}
-            </Typography>
+            <Stack direction='column'>
+                <Box sx={{ fontSize: iconSize, mx: 'auto', color: theme.palette.primary.main }}>
+                    {icon}
+                </Box>
+                <Typography variant="h5" textAlign='center' sx={textSx}>
+                    {label}
+                </Typography>
+            </Stack>
+           
         </Card>
     )
 }

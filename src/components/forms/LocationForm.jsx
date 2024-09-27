@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from "@mui/material"
+import { Button, Stack } from "@mui/material"
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../../data/constants";
@@ -66,22 +66,6 @@ const LocationForm = () => {
     }, [state])
 
     return (
-        // <Box sx={{
-        //     display: 'flex',
-        //     gap: '1rem',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     width: '100%',
-        // }}
-        // >
-        //     <Box sx={{ width: '50%' }}>
-        //         <AutocompleteInput value={state} setValue={setState} fetchData={fetchStates} placeholder="State" fullWidth />
-        //     </Box>
-        //     <Box sx={{ width: '50%' }}>
-        //         <AutocompleteInput value={city} setValue={setCity} fetchData={fetchCities} placeholder="City" fullWidth />
-        //     </Box>
-        //     <Button startIcon={<FiSearch />} disabled={!state || !city} onClick={handleFormSubmit}>Search</Button>
-        // </Box>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
             <AutocompleteInput value={state} setValue={setState} fetchData={fetchStates} placeholder="State" fullWidth />
             <AutocompleteInput value={city} setValue={setCity} fetchData={fetchCities} placeholder="City" fullWidth />
