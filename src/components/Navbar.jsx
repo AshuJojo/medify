@@ -61,15 +61,15 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
           gap: 2,
           mt: 2
         }} >
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Find Doctors</Typography>
-          <CustomNavLink to="/hospitals" theme={theme}><Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }} >Hospital</Typography></CustomNavLink>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Medicines</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Surgeries</Typography>
-          <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Facilities</Typography>
+          <Typography variant="body2" sx={{ cursor: 'pointer' }}>Find Doctors</Typography>
+          <CustomNavLink to="/hospitals" theme={theme}>
+            <Typography variant="body2" sx={{ cursor: 'pointer' }} >Hospital</Typography>
+          </CustomNavLink>
+          <Typography variant="body2" sx={{ cursor: 'pointer' }}>Medicines</Typography>
+          <Typography variant="body2" sx={{ cursor: 'pointer' }}>Surgeries</Typography>
+          <Typography variant="body2" sx={{ cursor: 'pointer' }}>Facilities</Typography>
           <CustomNavLink to="/mybookings" borderBottom={false} theme={theme} width="100%">
-            <Button variant='contained' fullWidth disableElevation>
-              My Bookings
-            </Button>
+            <Button variant="contained" disableElevation fullWidth>My Bookings</Button>
           </CustomNavLink>
         </Box>
       </Container >
@@ -85,17 +85,19 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
           <Box sx={{
             display: { xs: 'none', md: "flex" },
             alignItems: 'center',
-            gap: { md: 4, lg: 4 },
+            gap: 4,
           }}>
-            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Find Doctors</Typography>
+            <Typography variant="body2" sx={{ cursor: 'pointer' }}>Find Doctors</Typography>
             <CustomNavLink to="/hospitals" theme={theme}>
-              <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }} >Hospital</Typography>
+              <Typography variant="body2" sx={{ cursor: 'pointer' }} >Hospital</Typography>
             </CustomNavLink>
-            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Medicines</Typography>
-            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Surgeries</Typography>
-            <Typography to="#" sx={{ typography: { sm: 'body1', xs: 'body2' }, cursor: 'pointer' }}>Facilities</Typography>
+            <Typography variant="body2" sx={{ cursor: 'pointer' }}>Medicines</Typography>
+            <Typography variant="body2" sx={{ cursor: 'pointer' }}>Surgeries</Typography>
+            <Typography variant="body2" sx={{ cursor: 'pointer' }}>Facilities</Typography>
             <CustomNavLink to="/mybookings" borderBottom={false} theme={theme}>
-              <Button variant="contained" disableElevation>My Bookings</Button>
+              <Button variant="contained" disableElevation >
+                My Bookings
+              </Button>
             </CustomNavLink>
           </Box>
           <Box sx={{

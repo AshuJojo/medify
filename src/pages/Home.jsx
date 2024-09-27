@@ -22,7 +22,7 @@ const Home = () => {
     <>
       <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
-      {/* <HeroSection /> */}
+      <HeroSection />
       {/* <Container>
         <Card sx={{
           py: '2.5rem',
