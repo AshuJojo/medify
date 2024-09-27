@@ -7,7 +7,7 @@ const HeroSection = () => {
     return (
         <Container>
             <Stack direction={{ xs: 'column', md: 'row' }} alignItems='center' justifyContent='start'>
-                <Box sx={{ my: { xs: 4, sm: 4, md: 4 }, width: { xs: '100%', sm: '80%', md: '100%' }, mr: 'auto'}}>
+                <Box sx={{ my: { xs: 4, sm: 4, md: 10 }, width: { xs: '100%', sm: '80%', md: '100%' }, mr: 'auto' }}>
                     <Typography
                         variant="h3"
                     >
@@ -28,7 +28,7 @@ const HeroSection = () => {
                 </Box>
                 <Box sx={{ pt: { xs: 0, md: 4 } }}>
                     <img src={HeroImage}
-                        style={{ width: '100%' }}
+                        style={{ width: '100%', zIndex: -2 }}
                         alt='Hero Image' />
                 </Box>
             </Stack>

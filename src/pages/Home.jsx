@@ -1,4 +1,4 @@
-import { Box, Card, Container, Typography } from "@mui/material"
+import { Box, Card, Container, Stack, Typography } from "@mui/material"
 import AlertBar from "../components/AlertBar"
 import HeroSection from "../components/sections/HeroSection"
 import Navbar from "../components/Navbar"
@@ -20,28 +20,32 @@ const Home = () => {
 
   return (
     <>
-      <AlertBar />
+      {/* <AlertBar /> */}
       <Navbar bgColor={'inherit'} shadow={false} />
-      <HeroSection />
-      {/* <Container>
+      {/* <HeroSection /> */}
+      <Container
+        // sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
+      >
         <Card sx={{
           py: '2.5rem',
           px: '2.188rem',
           borderRadius: 3.75,
 
-          flexDirection: 'column',
-          gap: '2rem'
+          position: 'relative',
+          zIndex: 99
         }}>
-          <LocationForm />
+          <Stack direction='column' spacing={4}>
+            <LocationForm />
 
-          <Box width="100%">
-            <Typography variant="h6" textAlign={'center'}>You may be looking for</Typography>
-            <SearchRecommendation />
-          </Box>
+            <Box width="100%">
+              <Typography variant="h6" textAlign={'center'}>You may be looking for</Typography>
+              <SearchRecommendation />
+            </Box>
+          </Stack>
         </Card>
       </Container>
 
-      <Box
+      {/* <Box
         sx={{
           backgroundColor: 'white',
           pt: '8rem',

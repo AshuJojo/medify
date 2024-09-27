@@ -1,4 +1,4 @@
-import { Autocomplete, Box, CircularProgress, TextField } from "@mui/material";
+import { Autocomplete, Box, CircularProgress, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
@@ -47,20 +47,12 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
             onChange={(e, v) => { setValue(v) }}
             getOptionLabel={(option) => { return (label ? option[label] : option) || "" }}
             disableClearable
-            sx={{
-                '& .MuiAutocomplete-inputRoot': {
-                    paddingRight: 0,
-                },
-                "& .MuiOutlinedInput-root": {
-                    borderRadius: "0.5rem",
-                    color: 'primary.dark',
-                    padding: '0 !important',
-                },
-                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-                    border: "1px solid #eee",
-                    borderRadius: "0.5rem",
-                },
-
+            renderOption={(props, option) => {
+                return (
+                    <li  {...props} key={option}>
+                        <Typography variant="body2">{option}</Typography>
+                    </li>
+                )
             }}
             renderInput={(params) => (
                 <TextField
@@ -70,7 +62,7 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
                         bgcolor: '#FAFBFE',
                         border: '1px solid #F0F0F0',
                         borderRadius: "0.5rem",
-                        px: 0,
+                        px: 0
                     }}
                     slotProps={{
                         input: {
@@ -89,8 +81,24 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
                     }}
                 />
             )}
+            sx={{
+                '& .MuiAutocomplete-inputRoot': {
+                    paddingRight: 0,
+                },
+                "& .MuiOutlinedInput-root": {
+                    borderRadius: "0.5rem",
+                    color: 'primary.dark',
+                    padding: '0 !important',
+                },
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                    border: "1px solid #eee",
+                    borderRadius: "0.5rem",
+                },
+
+            }}
         />
     );
+
 }
 
 export default AutocompleteInput

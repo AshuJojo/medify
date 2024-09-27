@@ -68,6 +68,15 @@ const theme = createTheme({
                 },
             },
         },
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    '& >input': {
+                        fontSize: '14px'
+                    }
+                }
+            }
+        },
         // MuiCard: {
         //     styleOverrides: {
         //         root: {
