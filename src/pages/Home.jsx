@@ -54,15 +54,16 @@ const Home = () => {
       >
         <OffersSection />
       </Box>
-      {/*
+
       <Container sx={{ pb: 6, flexDirection: 'column' }}>
-        <Typography variant="h3" fontWeight={600} py='3.5rem'>Find By Specialisation</Typography>
+        <Typography variant="h2" py='3.5rem' textAlign={'center'}>Find By Specialisation</Typography>
 
         <Box sx={{ width: '100%' }}>
           <Specialisations />
         </Box>
       </Container>
 
+      {/*
       <Box sx={{ backgroundColor: '#ffffff', pb: 4 }}>
         <Typography
           variant="h3"

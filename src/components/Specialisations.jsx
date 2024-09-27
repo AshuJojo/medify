@@ -1,13 +1,13 @@
+import { Button, useMediaQuery, useTheme } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { FaUserDoctor } from 'react-icons/fa6';
-import IconCard from './cards/IconCard';
 import { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
-import { RiHospitalLine } from 'react-icons/ri';
-import { PiHeartbeatLight, PiShieldPlusLight, PiStethoscopeFill } from 'react-icons/pi';
-import { TbHeartRateMonitor } from 'react-icons/tb';
-import { LuTestTube2 } from 'react-icons/lu';
+import { FaUserDoctor } from 'react-icons/fa6';
 import { LiaXRaySolid } from 'react-icons/lia';
+import { LuTestTube2 } from 'react-icons/lu';
+import { PiHeartbeatLight, PiShieldPlusLight, PiStethoscopeFill } from 'react-icons/pi';
+import { RiHospitalLine } from 'react-icons/ri';
+import { TbHeartRateMonitor } from 'react-icons/tb';
+import IconCard from './cards/IconCard';
 
 const Specialisations = () => {
     const data = [
@@ -58,41 +58,52 @@ const Specialisations = () => {
         },
     ];
 
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
     const [isExpanded, setIsExpanded] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
-    const maxElmOnCollapse = 8
 
     useEffect(() => {
+        const maxElmOnCollapse = isDesktop ? 8 : (isTablet ? 6 : 3);
         if (isExpanded)
             setFilteredData(data);
         else
             setFilteredData(data.slice(0, maxElmOnCollapse));
-    }, [isExpanded]);
+    }, [isExpanded, isDesktop, isTablet]);
 
     return (
         <Grid width={'100%'} container spacing={2}>
             {filteredData.map((item) =>
                 <Grid
                     key={item.id}
-                    size={3}
+                    size={{ xs: 12, sm: 4, md: 3 }}
                     sx={{
                         display: 'flex',
                     }}
                 >
                     <IconCard
-                    
                         icon={item.icon}
                         label={item.label}
-                        elevation={0}   
+                        elevation={0}
                         iconSize={"3.75rem"}
+                        sx={{
+                            flex: '1 1 0px'
+                        }}
+                        textSx={{
+                            fontWeight: 500
+                        }}
                     />
                 </Grid>
             )}
 
             <Grid size={12} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Button
+                    variant='contained'
                     onClick={() => { setIsExpanded(!isExpanded) }}
                     sx={{ ms: 'auto', me: 'auto', px: 4, py: 1 }}
+                    disableElevation
                 >
                     {isExpanded ? 'Collapse' : 'View All'}
                 </Button>
