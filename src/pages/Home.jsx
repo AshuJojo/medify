@@ -63,22 +63,18 @@ const Home = () => {
         </Box>
       </Container>
 
-      {/*
       <Box sx={{ backgroundColor: '#ffffff', pb: 4 }}>
         <Typography
-          variant="h3"
-          fontWeight={600}
+          variant="h2"
           py='3.5rem'
           textAlign={'center'}
         >
           Our Medical Specialist
         </Typography>
 
-        <Box sx={{ width: '100%' }}>
-          <DoctorsCarousel />
-        </Box>
-
+        <DoctorsCarousel />
       </Box>
+      {/*
       <CareSection />
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>

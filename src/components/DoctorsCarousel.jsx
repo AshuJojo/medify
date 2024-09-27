@@ -1,11 +1,11 @@
-import CustomCarousel from './CustomCarousel';
-import doc1 from '../assets/images/docs/doc1.png'
-import doc2 from '../assets/images/docs/doc2.png'
-import doc3 from '../assets/images/docs/doc3.png'
-import doc4 from '../assets/images/docs/doc4.png'
-import doc5 from '../assets/images/docs/doc5.png'
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import doc1 from '../assets/images/docs/doc1.png';
+import doc2 from '../assets/images/docs/doc2.png';
+import doc3 from '../assets/images/docs/doc3.png';
+import doc4 from '../assets/images/docs/doc4.png';
+import doc5 from '../assets/images/docs/doc5.png';
 import ImageCard from './cards/ImageCard';
+import CustomCarousel from './CustomCarousel';
 
 const DoctorsCarousel = () => {
   const data = [
@@ -45,9 +45,15 @@ const DoctorsCarousel = () => {
     delay: 0,
   }
 
+  const theme = useTheme();
+  const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+  const isTablet = useMediaQuery((theme.breakpoints.between('sm', 'md')));
+  const slidesPerView = (isExtraLargeScreen ? 4 : (isLargeScreen ? 3 : (isTablet ? 2 : 1)));
+
   return (
     <CustomCarousel
-      slidesPerView={4}
+      slidesPerView={slidesPerView}
       spaceBetween={30}
       loop={true}
       autoplay={autoplayParams}
@@ -57,24 +63,14 @@ const DoctorsCarousel = () => {
       {
         data.map((doctor, idx) => {
           return (
-            <Box
-              key={idx}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 3
-              }}
-            >
+
+            <Stack key={idx} direction='column' spacing={3}>
 
               <ImageCard image={doctor.image} alt={doctor.name}
                 imageSx={{
                   background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
                   pt: 4,
-                  px: 4,
                   height: '22rem',
-                  objectFit: 'contain'
                 }}
 
                 elevation={1}
@@ -107,7 +103,7 @@ const DoctorsCarousel = () => {
                   {doctor.spcacility}
                 </Typography>
               </Box>
-            </Box>
+            </Stack>
           )
         })
       }
