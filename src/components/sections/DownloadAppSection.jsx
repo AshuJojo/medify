@@ -1,89 +1,80 @@
-import { Box, Button, Container, Divider, InputAdornment, TextField, Typography, useTheme } from "@mui/material"
-import { FaApple, FaGooglePlay } from "react-icons/fa";
-import ArrowIcon from '../../assets/svg/arrow.svg';
-import phone from '../../assets/images/phone.png';
-import phoneFrame from '../../assets/images/phone-frame.png';
-
-const Phone = () => {
-    return (
-        <Box sx={{ position: 'relative', height: '5rem' }}>
-            <img src={phone} style={{
-                position: 'absolute',
-                borderRadius: '5rem',
-                left: 5,
-                top: 10
-            }} />
-            <img src={phoneFrame} style={{
-                position: 'absolute',
-                borderRadius: '2rem',
-            }} />
-        </Box>
-    )
-}
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import Grid from '@mui/material/Grid2';
+import apple from "../../assets/images/apple-logo.png";
+import arrow from "../../assets/images/down-arr.png";
+import mobile from "../../assets/images/mobile.jpg";
+import playstore from "../../assets/images/playstore.png";
+import SmsForm from "../forms/SmsForm";
 
 const DownloadAppSection = () => {
-    const theme = useTheme();
     return (
-        <Container sx={{paddingBottom: '15rem', position: 'relative', zIndex: -1}}>
-            <Box width='40%' sx={{ position: 'relative'}}>
-                <Box sx={{
-                    position: 'absolute',
-                    top: 30
-                }}>
-                    <Phone />
-                </Box>
-                <Box sx={{
-                    position: 'absolute',
-                    top: -30,
-                    left: 150,
-                    zIndex: -1
-                }}>
-                    <Phone />
-                </Box>
-            </Box>
-            <Box width='60%' sx={{ py: 20, position: 'relative' }}>
-                <Box sx={{
-                    width: '10%',
-                    position: 'absolute',
-                    bottom: -15
-                }}>
-                    <img src={ArrowIcon} alt="Arrow Icon" />
-                </Box>
-                <Box sx={{
-                    width: '90%',
-                    position: "absolute",
-                    right: 0
-                }}>
-                    <Typography variant="h3" color='primary.dark' fontWeight={600}>Download the</Typography>
-                    <Typography variant="h3" color='primary.dark' fontWeight={600} mb={3}><span style={{ color: theme.palette.primary.main }} >Medify</span> App</Typography>
-                    <Typography fontWeight={700}>Get the link to download the app</Typography>
-                    <Box sx={{ display: "flex", py: 2 }}>
-                        <TextField
-                            placeholder="Enter phone number"
-                            type="number"
-                            size='medium'
-                            sx={{ m: 1, flexGrow: 1, bgcolor: 'white', pl: 0, ml: 0, my: 0 }}
-                            slotProps={{
-                                input: {
-                                    startAdornment: <InputAdornment position="start" sx={{ maxHeight: '100%', height: '100%' }}>+91
-                                        <Divider orientation="vertical" flexItem sx={{ pl: 2, mr: 1 }} />
-                                    </InputAdornment>,
-                                },
-                            }}
-                        />
-                        <Button>Send Sms</Button>
-                    </Box>
+        <Container>
+            <Grid container spacing={6} justifyContent='center' alignItems='center'>
+                <Grid item size={{ xs: 6, md: 6 }} mt={2}>
+                    <Box component='img' src={mobile} alt='mobile' width={1} height='auto' />
+                </Grid>
+                <Grid item size={{ xs: 12, md: 6 }} sx={{ my: 'auto' }}>
+                    <Box
+                        position="relative"
+                        pl={{ xs: "36px", md: "50px" }}
+                        mb={{ xs: 4, md: 0 }}
+                    >
+                        <Typography variant="h2" mb={2}>
+                            Download the
+                            <br />
+                            <Box component="span" color="primary.main">
+                                Medify{" "}
+                            </Box>
+                            App
+                        </Typography>
 
-                    <Box sx={{ display: 'flex', gap: 4, width: '70%', mt: 5 }}>
-                        <Button startIcon={<FaGooglePlay />} sx={{ flexGrow: 1, p: 2, bgcolor: 'black', fontWeight: 500, fontSize: 20, height: 70 }}>
-                            Google Play
-                        </Button>
-                        <Button startIcon={<FaApple />} sx={{ flexGrow: 1, p: 2, bgcolor: 'black', fontWeight: 500, fontSize: 20, height: 70 }}>
-                            Apple Store
-                        </Button>
+                        <Box
+                            src={arrow}
+                            component="img"
+                            width={{ xs: 24, md: 40 }}
+                            position="absolute"
+                            left={0}
+                            top={50}
+                        />
+
+                        <SmsForm />
+
+                        <Stack
+                            direction={{ xs: "column", md: "row" }}
+                            spacing={{ xs: 1, md: 2 }}
+                        >
+                            <Button
+                                sx={{
+                                    bgcolor: "#333",
+                                    color: "#fff",
+                                    py: 1.5,
+                                    borderRadius: 1.5,
+                                }}
+                                size={"large"}
+                                startIcon={<img src={playstore} height={24} />}
+                                variant="contained"
+                                disableElevation
+                            >
+                                Google Play
+                            </Button>
+                            <Button
+                                sx={{
+                                    bgcolor: "#333",
+                                    color: "#fff",
+                                    py: 1.5,
+                                    borderRadius: 1.5,
+                                }}
+                                size="large"
+                                startIcon={<img src={apple} height={24} />}
+                                variant="contained"
+                                disableElevation
+                            >
+                                App Store
+                            </Button>
+                        </Stack>
                     </Box>
-                </Box>
-            </Box>
+                </Grid>
+            </Grid>
         </Container>
     )
 }

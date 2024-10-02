@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <AlertBar />
+      {/* <AlertBar />
 
       <Navbar bgColor={'inherit'} shadow={false} />
 
@@ -58,10 +58,10 @@ const Home = () => {
 
       <StatisticsSection />
 
-      <FAQsSection />
+      <FAQsSection /> */}
 
-      {/*
       <DownloadAppSection />
+      {/*
 
       <Footer /> */}
     </>
