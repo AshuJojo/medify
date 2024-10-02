@@ -21,7 +21,7 @@ const StatisticsSection = () => {
                 </Grid>
                 <Grid item size={{ xs: 12, md: 6 }}>
                     <Box sx={{ width: '100%', mx: 'auto', my: 4 }}>
-                        <Grid container spacing={2} justifyContent={'center'}>
+                        <Grid container spacing={4} justifyContent={'center'}>
                             <Grid item size={{ xs: 12, sm: 6, md: 6 }}>
                                 <StatisticsCard
                                     icon={<FaHandHoldingHeart />}
@@ -58,7 +58,7 @@ const StatisticsSection = () => {
                                     }}
                                 />
                             </Grid>
-                            <Grid item size={{ xs: 12, sm: 6, md: 6 }} sx={{ mt: { md: -4 } }}>
+                            <Grid item size={{ xs: 12, sm: 6, md: 6 }} sx={{ mt: { md: -8 } }}>
 
                                 <StatisticsCard
                                     icon={<RiHospitalLine />}
@@ -78,7 +78,7 @@ const StatisticsSection = () => {
                                 />
 
                             </Grid>
-                            <Grid item size={{ xs: 12, sm: 6, md: 6 }}>
+                            <Grid item size={{ xs: 12, sm: 6, md: 6 }} sx={{mt: {md: -4}}}>
                                 <StatisticsCard
                                     icon={<FaUserDoctor />}
                                     iconBg='#EBFAF1'

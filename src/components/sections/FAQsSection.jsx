@@ -1,9 +1,7 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Paper, Typography, useTheme } from "@mui/material"
-import { FaPlus } from "react-icons/fa"
-import ImageCard from "../cards/ImageCard";
-import friendlyDoc from '../../assets/images/friendly-doc.png';
-import CareIcon from '../../assets/svg/care.svg';
-import HappyIcon from '../../assets/svg/happy.svg';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Typography, useTheme } from "@mui/material";
+import Grid from '@mui/material/Grid2';
+import { FaPlus } from "react-icons/fa";
+import banner from '../../assets/images/faqs-banner.jpg';
 
 const FAQsSection = () => {
 
@@ -28,74 +26,21 @@ const FAQsSection = () => {
 
     const theme = useTheme();
     return (
-        <Box sx={{ bgcolor: "white" }}>
-            <Container sx={{ flexDirection: 'column', height: '40rem', justifyContent: 'start' }}>
-                <Typography variant="h5" color="primary" fontWeight={600}>Get Your Answer</Typography>
-                <Typography variant="h3" color="primary.dark" fontWeight={600}>Frequently Asked Questions</Typography>
-
-                <Box width="100%" pt={8}>
-                    <Box sx={{ width: '50%', position: 'relative' }}>
-                        <ImageCard
-                            image={friendlyDoc}
-                            alt='Friendly Doc'
-                            sx={{
-                                width: '30rem',
-                                border: '4px solid white',
-                                position: 'absolute',
-                                zIndex: 0,
-                                top: 0,
-                                left: 50,
-                            }}
-                        />
-
-                        <ImageCard
-                            image={CareIcon}
-                            alt="Care Icon"
-                            sx={{
-                                width: '4rem',
-                                height: '4rem',
-                                p: '1rem',
-                                borderRadius: '50rem',
-                                position: 'absolute',
-                                zIndex: 1,
-                                right: 10,
-                                top: 150
-                            }}
-                            imageSx={{
-                                width: '2.5rem',
-                                height: '2.5rem',
-                            }}
-                        />
-
-                        <Paper
-                            elevation={0}
-                            sx={{
-                                p: 2,
-                                position: 'absolute',
-                                zIndex: 2,
-                                top: 300,
-                                left: -30,
-                                borderRadius: 2,
-                                boxShadow: '0px 40px 40px -15px #94B6CE26',
-
-                            }}>
-                            <Box sx={{ display: 'flex', gap: 1, justifyContent: 'start', alignItems: 'center', pb: 0.5 }}>
-                                <img src={HappyIcon} alt="Happy Icon" />
-                                <Box>
-                                    <Typography color='primary.dark' fontWeight={700} fontSize={16} width='fit-content'>84k+</Typography>
-                                    <Typography color='#77829D' fontWeight={500} fontSize={15} >Happy Patients</Typography>
-                                </Box>
-                            </Box>
-                        </Paper>
-                    </Box>
-                    <Box sx={{ width: '50%', float: 'right', pt: 2 }}>
+        <Box sx={{ bgcolor: "white", py: 2 }}>
+            <Container sx={{ textAlign: 'center' }}>
+                <Typography variant="h6">Get Your Answer</Typography>
+                <Typography variant="h2">Frequently Asked Questions</Typography>
+                <Grid container spacing={2} sx={{ pt: { xs: 0, md: 4 }, justifyContent: 'center', alignItems: 'start' }}>
+                    <Grid item size={{ xs: 12, md: 6 }}>
+                        <Box component='img' src={banner} alt="faqs banner" width={1} />
+                    </Grid>
+                    <Grid item size={{ xs: 12, md: 6 }} textAlign={'start'}>
                         {faqs.map((faq, idx) => (
                             <Accordion
                                 key={idx}
                                 elevation={0}
                                 sx={{
                                     my: 6,
-
                                     '& .css-144hfb1-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded': {
                                         minHeight: 0,
                                     },
@@ -119,19 +64,19 @@ const FAQsSection = () => {
 
                                     }}
                                 >
-                                    <Typography variant="h6" color="primary.dark">{faq.question}</Typography>
+                                    <Typography variant="h5" color="primary.dark" fontWeight={600}>{faq.question}</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails sx={{
                                     pt: 0
                                 }}>
-                                    <Typography variant="subtitle1">{faq.answer}</Typography>
+                                    <Typography variant="subtitle2" color="#77829D">{faq.answer}</Typography>
                                 </AccordionDetails>
                             </Accordion>
                         ))}
-                    </Box>
-                </Box>
-            </Container >
-        </Box>
+                    </Grid>
+                </Grid>
+            </Container>
+        </Box >
     )
 }
 

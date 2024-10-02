@@ -58,7 +58,7 @@ const Home = () => {
 
       <StatisticsSection />
 
-        <FAQsSection />
+      <FAQsSection />
 
       {/*
       <DownloadAppSection />
