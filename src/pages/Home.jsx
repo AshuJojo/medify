@@ -20,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+
       <AlertBar />
       <Navbar bgColor={'inherit'} shadow={false} />
       <HeroSection />
@@ -36,7 +37,6 @@ const Home = () => {
         }}>
           <Stack direction='column' spacing={6}>
             <LocationForm />
-
             <Box width="100%">
               <Typography variant="h4" textAlign={'center'} mb={2}>You may be looking for</Typography>
               <SearchRecommendation />
@@ -75,11 +75,11 @@ const Home = () => {
         <DoctorsCarousel />
       </Box>
       <CareSection />
-
       <BlogSection />
 
-      {/*
+
       <StatisticsSection />
+      {/*
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <FAQsSection />
