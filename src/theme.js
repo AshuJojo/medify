@@ -9,6 +9,7 @@ const theme = createTheme({
             contrastText: '#ffffff',
             black: '000000',
             white: '#FFFFFF',
+            success: '#01A400'
         },
     },
     typography: {

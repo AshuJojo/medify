@@ -21,7 +21,7 @@ const CustomNavLink = ({ theme, to, children, borderBottom, width = "auto" }) =>
           paddingTop: 19,
           paddingBottom: isLargeScreen ? 17 : 4,
           marginTop: -18,
-          marginBottom: isLargeScreen ? -24 : 0,
+          marginBottom: isLargeScreen ? -26 : 0,
           textAlign: 'center'
         };
       }}
