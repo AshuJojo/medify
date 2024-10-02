@@ -76,11 +76,9 @@ const Home = () => {
       </Box>
       <CareSection />
 
-      {/*
-      <Box sx={{ bgcolor: "white", py: '3rem' }}>
-        <BlogSection />
-      </Box>
+      <BlogSection />
 
+      {/*
       <StatisticsSection />
 
       <Box sx={{ bgcolor: "white", py: '3rem' }}>

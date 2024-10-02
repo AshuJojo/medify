@@ -18,7 +18,7 @@ const CareSection = () => {
                 </Grid>
                 <Grid item size={{ xs: 12, md: 6 }}>
                     <Box>
-                        <Typography variant="subtitle2" color='primary' fontWeight={600}>HELPING PATIENTS FROM AROUND THE GLOBE!!</Typography>
+                        <Typography variant="h6">HELPING PATIENTS FROM AROUND THE GLOBE!!</Typography>
                         <Typography variant="h2">
                             Patient <span style={{ color: theme.palette.primary.main }}>Caring</span>
                         </Typography>

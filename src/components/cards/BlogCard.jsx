@@ -4,8 +4,8 @@ import { Avatar, Box, Card, CardContent, CardMedia, Divider, Typography } from "
 const BlogCard = ({ image, alt, title, category, datePosted, avatar, author }) => {
     return (
         <Card elevation={1} sx={{
-            maxWidth: 345,
             display: 'block',
+            textAlign: 'start'
         }}>
             <CardMedia
                 sx={{ height: 250 }}
@@ -19,21 +19,25 @@ const BlogCard = ({ image, alt, title, category, datePosted, avatar, author }) =
                     fontWeight: 500,
                     gap: 0.8
                 }}>
-                    <Typography gutterBottom>{category}</Typography>
+                    <Typography variant="subtitle2" color={'#77829D'} gutterBottom>{category}</Typography>
                     <Divider sx={{ border: '1px solid #DDDDDD', mb: 1.3, mt: 0.5 }} />
-                    <Typography gutterBottom>{datePosted}</Typography>
+                    <Typography variant="subtitle2" color={'#77829D'} >{datePosted}</Typography>
                 </Box>
-                <Typography gutterBottom component="div" sx={{
-                    color: "primary.dark",
+                <Typography variant="h5" sx={{
+                    color: 'primary.dark',
                     fontWeight: 500,
-                    fontSize: '1.125rem'
-                }}>
+                    WebkitLineClamp: 2,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                }} gutterBottom >
                     {title}
                 </Typography>
 
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
                     <Avatar alt={author} src={avatar} sx={{ width: 32, height: 32, bgcolor: '#f2f2f2' }} />
-                    <Typography sx={{ fontWeight: 500, color: 'primary.dark' }}>{author}</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 500, color: 'primary.dark' }}>{author}</Typography>
                 </Box>
             </CardContent>
         </Card>
