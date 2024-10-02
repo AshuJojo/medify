@@ -52,50 +52,56 @@ const DoctorsCarousel = () => {
   const slidesPerView = (isExtraLargeScreen ? 4 : (isLargeScreen ? 3 : (isTablet ? 2 : 1)));
 
   return (
-    <CustomCarousel
-      slidesPerView={slidesPerView}
-      spaceBetween={30}
-      loop={true}
-      autoplay={autoplayParams}
-      freeMode={freeModeParams}
-      speed={5000}
-    >
-      {
-        data.map((doctor, idx) => {
-          return (
+    <Box sx={{ backgroundColor: '#ffffff', pb: 4 }}>
+      <Typography variant="h2" py='3.5rem' textAlign='center'>
+        Our Medical Specialist
+      </Typography>
+      <CustomCarousel
+        slidesPerView={slidesPerView}
+        spaceBetween={30}
+        loop={true}
+        autoplay={autoplayParams}
+        freeMode={freeModeParams}
+        speed={5000}
+      >
+        {
+          data.map((doctor, idx) => {
+            return (
 
-            <Stack key={idx} direction='column' spacing={3}>
+              <Stack key={idx} direction='column' spacing={3}>
 
-              <ImageCard image={doctor.image} alt={doctor.name}
-                imageSx={{
-                  background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
-                  pt: 4,
-                  height: '22rem',
-                }}
+                <ImageCard image={doctor.image} alt={doctor.name}
+                  imageSx={{
+                    background: 'linear-gradient(144.2deg, #E1F3FF 0%, #2AA7FF 100%)',
+                    pt: 4,
+                    height: '22rem',
+                  }}
 
-                elevation={1}
-                sx={{
-                  height: '24rem',
-                  border: '0.5rem solid white',
-                  borderRadius: '100% 100% 0 0',
-                  boxShadow: '0px 15px 55px -10px #00000017',
-                }}
-              />
+                  elevation={1}
+                  sx={{
+                    height: '24rem',
+                    border: '0.5rem solid white',
+                    borderRadius: '100% 100% 0 0',
+                    boxShadow: '0px 15px 55px -10px #00000017',
+                  }}
+                />
 
-              <Box textAlign='center'>
-                <Typography variant="subtitle1">
-                  {doctor.name}
-                </Typography>
+                <Box textAlign='center'>
+                  <Typography variant="subtitle1">
+                    {doctor.name}
+                  </Typography>
 
-                <Typography variant="subtitle2">
-                  {doctor.spcacility}
-                </Typography>
-              </Box>
-            </Stack>
-          )
-        })
-      }
-    </CustomCarousel >
+                  <Typography variant="subtitle2">
+                    {doctor.spcacility}
+                  </Typography>
+                </Box>
+              </Stack>
+            )
+          })
+        }
+      </CustomCarousel >
+    </Box>
+
   )
 }
 

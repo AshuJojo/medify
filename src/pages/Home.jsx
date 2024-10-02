@@ -20,10 +20,12 @@ const Home = () => {
 
   return (
     <>
-
       <AlertBar />
+
       <Navbar bgColor={'inherit'} shadow={false} />
+
       <HeroSection />
+
       <Container
         sx={{ mt: { xs: -10, sm: -14, md: -10 } }}
       >
@@ -36,55 +38,29 @@ const Home = () => {
           zIndex: 99
         }}>
           <Stack direction='column' spacing={6}>
+
             <LocationForm />
-            <Box width="100%">
-              <Typography variant="h4" textAlign={'center'} mb={2}>You may be looking for</Typography>
-              <SearchRecommendation />
-            </Box>
+
+            <SearchRecommendation />
           </Stack>
         </Card>
       </Container>
 
-      <Box
-        sx={{
-          backgroundColor: 'white',
-          pt: '8rem',
-          mt: '-5rem',
-        }}
-      >
-        <OffersSection />
-      </Box>
+      <OffersSection />
 
-      <Container sx={{ pb: 6, flexDirection: 'column' }}>
-        <Typography variant="h2" py='3.5rem' textAlign={'center'}>Find By Specialisation</Typography>
+      <Specialisations />
 
-        <Box sx={{ width: '100%' }}>
-          <Specialisations />
-        </Box>
-      </Container>
+      <DoctorsCarousel />
 
-      <Box sx={{ backgroundColor: '#ffffff', pb: 4 }}>
-        <Typography
-          variant="h2"
-          py='3.5rem'
-          textAlign={'center'}
-        >
-          Our Medical Specialist
-        </Typography>
-
-        <DoctorsCarousel />
-      </Box>
       <CareSection />
+
       <BlogSection />
 
-
       <StatisticsSection />
-      {/*
 
-      <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <FAQsSection />
-      </Box>
 
+      {/*
       <DownloadAppSection />
 
       <Footer /> */}

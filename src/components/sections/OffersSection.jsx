@@ -51,25 +51,33 @@ const OffersSection = () => {
     const slidesPerView = (isLargeScreen ? 3 : (isTablet ? 2 : 1));
 
     return (
-        <Container sx={{ padding: '1rem' }}>
-            <Box width='100%'>
-                <CustomCarousel slidesPerView={slidesPerView} spaceBetween={70}>
-                    {offers.map((offer, idx) => (
-                        <ImageCard
-                            key={idx}
-                            image={offer.image}
-                            alt={offer.alt}
-                            sx={{
-                                borderRadius: 6,
-                                padding: 0,
-                                margin: 0,
-                            }}
-                        />
-                    ))}
+        <Box
+            sx={{
+                backgroundColor: 'white',
+                pt: '8rem',
+                mt: '-5rem',
+            }}
+        >
+            <Container sx={{ padding: '1rem' }}>
+                <Box width='100%'>
+                    <CustomCarousel slidesPerView={slidesPerView} spaceBetween={70}>
+                        {offers.map((offer, idx) => (
+                            <ImageCard
+                                key={idx}
+                                image={offer.image}
+                                alt={offer.alt}
+                                sx={{
+                                    borderRadius: 6,
+                                    padding: 0,
+                                    margin: 0,
+                                }}
+                            />
+                        ))}
 
-                </CustomCarousel>
-            </Box>
-        </Container >
+                    </CustomCarousel>
+                </Box>
+            </Container >
+        </Box>
     )
 }
 

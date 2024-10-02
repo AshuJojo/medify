@@ -1,4 +1,4 @@
-import { alpha, Stack, useTheme } from '@mui/material'
+import { alpha, Box, Stack, Typography, useTheme } from '@mui/material'
 import { useState } from "react"
 import { FaRegHospital, FaUserDoctor } from "react-icons/fa6"
 import { PiAmbulance, PiPillDuotone } from "react-icons/pi"
@@ -39,30 +39,33 @@ const SearchRecommendation = () => {
     ];
 
     return (
-        <Stack direction="row" gap={2} flexWrap='wrap' justifyContent='center'>
-            {recommendations.map((recommendation) => {
-                return (
-                    <IconCard
-                        key={recommendation.id}
-                        icon={recommendation.icon}
-                        label={recommendation.label}
-                        elevation={0}
-                        sx={{
-                            minWidth: '9rem',
-                            maxWidth: '12rem',
-                            flex: '1 1 0px',
-                            bgcolor: ((recommendation.id === selectedCardId) ? alpha(theme.palette.primary.main, 0.08) : '#FAFBFE'),
-                            border: ((recommendation.id === selectedCardId) ? `1px solid ${theme.palette.primary.main}` : ''),
-                        }}
-                        textSx={{
-                            color: ((recommendation.id === selectedCardId) ? '#2AA7FF' : ''),
-                            fontWeight: ((recommendation.id === selectedCardId) ? 600 : 400),
-                        }}
-                        onClick={() => { setSelectedCardId(recommendation.id) }}
-                    />
-                )
-            })}
-        </Stack>
+        <Box>
+            <Typography variant="h4" textAlign={'center'} mb={2}>You may be looking for</Typography>
+            <Stack direction="row" gap={2} flexWrap='wrap' justifyContent='center'>
+                {recommendations.map((recommendation) => {
+                    return (
+                        <IconCard
+                            key={recommendation.id}
+                            icon={recommendation.icon}
+                            label={recommendation.label}
+                            elevation={0}
+                            sx={{
+                                minWidth: '9rem',
+                                maxWidth: '12rem',
+                                flex: '1 1 0px',
+                                bgcolor: ((recommendation.id === selectedCardId) ? alpha(theme.palette.primary.main, 0.08) : '#FAFBFE'),
+                                border: ((recommendation.id === selectedCardId) ? `1px solid ${theme.palette.primary.main}` : ''),
+                            }}
+                            textSx={{
+                                color: ((recommendation.id === selectedCardId) ? '#2AA7FF' : ''),
+                                fontWeight: ((recommendation.id === selectedCardId) ? 600 : 400),
+                            }}
+                            onClick={() => { setSelectedCardId(recommendation.id) }}
+                        />
+                    )
+                })}
+            </Stack>
+        </Box>
     )
 }
 

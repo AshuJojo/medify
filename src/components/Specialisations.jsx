@@ -1,4 +1,4 @@
-import { Button, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useEffect, useState } from 'react';
 import { FaUserDoctor } from 'react-icons/fa6';
@@ -74,41 +74,46 @@ const Specialisations = () => {
     }, [isExpanded, isDesktop, isTablet]);
 
     return (
-        <Grid width={'100%'} container spacing={2}>
-            {filteredData.map((item) =>
-                <Grid
-                    key={item.id}
-                    size={{ xs: 12, sm: 4, md: 3 }}
-                    sx={{
-                        display: 'flex',
-                    }}
-                >
-                    <IconCard
-                        icon={item.icon}
-                        label={item.label}
-                        elevation={0}
-                        iconSize={"3.75rem"}
-                        sx={{
-                            flex: '1 1 0px'
-                        }}
-                        textSx={{
-                            fontWeight: 500
-                        }}
-                    />
-                </Grid>
-            )}
+        <Container sx={{ pb: 6, flexDirection: 'column' }}>
+            <Typography variant="h2" py='3.5rem' textAlign={'center'}>Find By Specialisation</Typography>
+            <Box sx={{ width: '100%' }}>
+                <Grid width={'100%'} container spacing={2}>
+                    {filteredData.map((item) =>
+                        <Grid
+                            key={item.id}
+                            size={{ xs: 12, sm: 4, md: 3 }}
+                            sx={{
+                                display: 'flex',
+                            }}
+                        >
+                            <IconCard
+                                icon={item.icon}
+                                label={item.label}
+                                elevation={0}
+                                iconSize={"3.75rem"}
+                                sx={{
+                                    flex: '1 1 0px'
+                                }}
+                                textSx={{
+                                    fontWeight: 500
+                                }}
+                            />
+                        </Grid>
+                    )}
 
-            <Grid size={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Button
-                    variant='contained'
-                    onClick={() => { setIsExpanded(!isExpanded) }}
-                    sx={{ ms: 'auto', me: 'auto', px: 4, py: 1 }}
-                    disableElevation
-                >
-                    {isExpanded ? 'Collapse' : 'View All'}
-                </Button>
-            </Grid>
-        </Grid>
+                    <Grid size={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button
+                            variant='contained'
+                            onClick={() => { setIsExpanded(!isExpanded) }}
+                            sx={{ ms: 'auto', me: 'auto', px: 4, py: 1 }}
+                            disableElevation
+                        >
+                            {isExpanded ? 'Collapse' : 'View All'}
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Box>
+        </Container>
     )
 }
 
