@@ -74,9 +74,9 @@ const Home = () => {
 
         <DoctorsCarousel />
       </Box>
-      {/*
       <CareSection />
 
+      {/*
       <Box sx={{ bgcolor: "white", py: '3rem' }}>
         <BlogSection />
       </Box>

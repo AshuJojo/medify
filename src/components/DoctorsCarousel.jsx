@@ -83,23 +83,11 @@ const DoctorsCarousel = () => {
               />
 
               <Box textAlign='center'>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 400,
-                    color: 'primary.dark'
-                  }}
-                >
+                <Typography variant="subtitle1">
                   {doctor.name}
                 </Typography>
 
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    fontWeight: 400,
-                    color: 'primary.main'
-                  }}
-                >
+                <Typography variant="subtitle2">
                   {doctor.spcacility}
                 </Typography>
               </Box>

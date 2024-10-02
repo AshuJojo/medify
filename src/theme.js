@@ -48,6 +48,16 @@ const theme = createTheme({
             fontSize: '14px',
             fontWeight: 400,
             color: '#5C6169'
+        },
+        subtitle1: {
+            fontSize: '24px',
+            fontWeight: 400,
+            color: '#1B3C74'
+        },
+        subtitle2: {
+            fontSize: '16px',
+            fontWeight: 500,
+            color: '#2AA7FF'
         }
     },
     components: {
