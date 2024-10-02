@@ -17,11 +17,11 @@ const CustomNavLink = ({ theme, to, children, borderBottom, width = "auto" }) =>
           textDecoration: 'none',
           color: isActive ? theme.palette.primary.main : "black",
           fontWeight: isActive ? 500 : 400,
-          borderBottom: isActive && borderBottom === undefined && isLargeScreen ? `4px solid ${theme.palette.primary.main}` : "",
+          borderBottom: isActive && borderBottom === undefined ? `4px solid ${theme.palette.primary.main}` : "",
           paddingTop: 19,
-          paddingBottom: 17,
+          paddingBottom: isLargeScreen ? 17 : 4,
           marginTop: -18,
-          marginBottom: -18,
+          marginBottom: isLargeScreen ? -24 : 0,
           textAlign: 'center'
         };
       }}
