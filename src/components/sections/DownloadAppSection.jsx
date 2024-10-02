@@ -8,12 +8,12 @@ import SmsForm from "../forms/SmsForm";
 
 const DownloadAppSection = () => {
     return (
-        <Container>
+        <Container sx={{mb: -1}}>
             <Grid container spacing={6} justifyContent='center' alignItems='center'>
-                <Grid item size={{ xs: 6, md: 6 }} mt={2}>
+                <Grid item size={{ xs: 6, md: 6 }} mt={2} >
                     <Box component='img' src={mobile} alt='mobile' width={1} height='auto' />
                 </Grid>
-                <Grid item size={{ xs: 12, md: 6 }} sx={{ my: 'auto' }}>
+                <Grid item size={{ xs: 12, md: 6 }}>
                     <Box
                         position="relative"
                         pl={{ xs: "36px", md: "50px" }}
