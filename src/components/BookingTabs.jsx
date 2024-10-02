@@ -135,6 +135,7 @@ const BookingTabs = ({ hospital }) => {
                 onChange={handleChange}
                 variant="scrollable"
                 scrollButtons
+                allowScrollButtonsMobile
                 aria-label="visible arrows tabs example"
                 sx={{
                     mt: 2,
@@ -143,7 +144,7 @@ const BookingTabs = ({ hospital }) => {
                         '&.Mui-disabled': { opacity: 0.3 },
                     },
                     '& button[role="tab"]': {
-                        flex: '0 0 33.3333%',
+                        flex: { xs: '0 0 100%', sm: '0 0 33.3333%' },
                         borderBottom: '4px solid #F0F0F5'
                     },
                     '& .css-thcqs7-MuiTabs-indicator': {
@@ -191,8 +192,8 @@ const BookingTabs = ({ hospital }) => {
                         <Tab key={idx}
                             label={
                                 <>
-                                    <Typography fontWeight={700} color='#414146'>{tabLabel}</Typography>
-                                    <Typography color="#01A400" fontSize={12} mt={0.5}>{getSlotsAvailableCount(date)} slots available</Typography>
+                                    <Typography variant='h6' fontWeight={700} color='#414146'>{tabLabel}</Typography>
+                                    <Typography variant='body2' color="#01A400" fontSize={12} mt={0.5}>{getSlotsAvailableCount(date)} slots available</Typography>
                                 </>
                             }
                             value={idx}
@@ -211,13 +212,16 @@ const BookingTabs = ({ hospital }) => {
                                 <Box
                                     sx={{
                                         display: 'flex',
+                                        flexDirection: { xs: 'column', sm: 'row' },
+                                        gap: {xs: 2, md: 0},
                                         my: 2,
                                         alignItems: 'center',
                                     }}>
-                                    <Typography color="#414146" sx={{ textTransform: 'capitalize', width: '7rem' }}>
+                                    <Typography variant='body2' color="#414146" sx={{ textTransform: 'capitalize', width: '7rem', 
+                                        textAlign: {xs:'center', sm: 'start'} }}>
                                         {slot}
                                     </Typography>
-                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, width: '100%' }}>
+                                    <Box sx={{ display: 'flex', justifyContent: {xs: 'center', sm: 'start'}, flexWrap: 'wrap', gap: 2, width: '100%' }}>
                                         {slotTimings[slot].map((time, timeIdx) => {
                                             const id = createTimeId(date, time);
                                             return (

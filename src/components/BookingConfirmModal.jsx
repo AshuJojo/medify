@@ -1,4 +1,4 @@
-import { Box, Button, Modal, Typography } from "@mui/material"
+import { Box, Button, Modal, Stack, Typography } from "@mui/material"
 import { getDateFromDateObj, getTimeFromDateObj } from "../utils/DateHelper";
 
 const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfirmBooking }) => {
@@ -24,22 +24,17 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfi
                 },
             }}
             sx={{
-
                 display: 'flex',
                 justifyContent: "center",
                 alignItems: 'center',
                 border: 0,
             }}
         >
-            <Box bgcolor='white' sx={{
-                p: 4,
-                outline: 'none',
-                width: '40%',
-            }}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Stack direction='column' spacing={2} sx={{bgcolor: 'white', p: 4, mx: 2, maxWidth: 700, borderRadius: 2}}>
+                <Typography variant="h4" color="primary">
                     Confirm Booking
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <Typography variant="body1">
                     Are you sure you sure that you want to book your appointment on <span style={{ fontWeight: 'bold' }}>{date}</span> at <span style={{ fontWeight: 'bold' }}>{time}</span>?
                 </Typography>
                 <Box width='100%' sx={{
@@ -48,10 +43,17 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfi
                     gap: 2,
                     mt: 2
                 }}>
-                    <Button onClick={handleConfirmBooking}>Yes</Button>
+                    <Button variant="contained" onClick={handleConfirmBooking}>Yes</Button>
                     <Button variant="outlined" onClick={handleClose}>Cancel</Button>
                 </Box>
-            </Box>
+            </Stack>
+            {/* <Box bgcolor='white' sx={{
+                p: 4,
+                outline: 'none',
+                width: '40%',
+            }}>
+
+            </Box> */}
         </Modal>
     )
 }

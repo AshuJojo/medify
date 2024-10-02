@@ -19,7 +19,7 @@ const CustomNavLink = ({ theme, to, children, borderBottom, width = "auto" }) =>
           fontWeight: isActive ? 500 : 400,
           borderBottom: isActive && borderBottom === undefined ? `4px solid ${theme.palette.primary.main}` : "",
           paddingTop: 19,
-          paddingBottom: isLargeScreen ? 17 : 4,
+          paddingBottom: isLargeScreen ? (isActive ? 17: 24) : 4,
           marginTop: -18,
           marginBottom: isLargeScreen ? -26 : 0,
           textAlign: 'center'
