@@ -26,6 +26,9 @@ It is a medical website frontend application, which can fetch and show available
 * Most interesting feature of website is search component which displays a form of state and city, and button would be disabled until all the inputs are given.
 * Upon clicking on `state` input, it shows an set of state from fetched api. & `city` input whould show no cities, until a state is selected.
 * When you click on `Search` button, it redirects to `/hospitals` url with state and city query.
+
+![state-city-form](https://github.com/user-attachments/assets/5378d786-8614-4c4e-b3cb-9aef98dfd286)
+
 * Next is a corousel component which is made using `swiper` and it shows offers.
 * Then there is a specialization component which shows a set of card with icon and name of different specialization available in hospitals.
 * After that We have another carousel, this carousel is on autoplay, and keep looping the different top doctors.
@@ -44,14 +47,20 @@ It is a medical website frontend application, which can fetch and show available
 * Upon selecting on any of these dates, there is slots timing from morning, afternoon, & evening.
 * Upon clicking on these slots button, a modal is shown to confirm booking. 
 * Upon confirming the booking the booking slot is saved in localstorage along with hospital details, the date is a timestamp and no hospital data is duplicated in localstorage to make best use of resources.
+
+![hospital-booking-slot](https://github.com/user-attachments/assets/a2e6f403-aeee-45f1-9604-7593a140a1e9)
 * After saving data in localstorage, the application navigates user to `My Booking` page.
 * Implemented Responsiveness for all components in Hospitals Page.
 
 #### My Booking Page:
 
+
 * At the top this page have a `search hospital` form.
 * Upon clicking on the input box it shows a list of booked hospitals of users, and on selecting any one option, it only shows the data of that hospital along with booking slot.
 * After that we have a list of booking cards which shows hospital data along with its booking date and timing, these dates and timing are formated in simpler way to persent to the user.
+
+![my-bookings-search](https://github.com/user-attachments/assets/1ddb0eb8-f572-4fc5-9b5f-e2b83c343593)
+
 * Implemented Responsiveness for all components in My Booking Page.
 
 #### Highlighted Tools & Components
