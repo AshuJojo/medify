@@ -1,8 +1,7 @@
-import { Box, Button, Modal, Stack, Typography } from "@mui/material"
+import { Box, Button, Modal, Stack, Typography } from "@mui/material";
 import { getDateFromDateObj, getTimeFromDateObj } from "../utils/DateHelper";
 
 const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfirmBooking }) => {
-
 
     console.log('bookingDateJSON', bookingDateJSON);
 
@@ -34,7 +33,7 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfi
                 <Typography variant="h4" color="primary">
                     Confirm Booking
                 </Typography>
-                <Typography variant="body1">
+                <Typography variant="body2" fontSize={18}>
                     Are you sure you sure that you want to book your appointment on <span style={{ fontWeight: 'bold' }}>{date}</span> at <span style={{ fontWeight: 'bold' }}>{time}</span>?
                 </Typography>
                 <Box width='100%' sx={{
@@ -47,13 +46,6 @@ const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfi
                     <Button variant="outlined" onClick={handleClose}>Cancel</Button>
                 </Box>
             </Stack>
-            {/* <Box bgcolor='white' sx={{
-                p: 4,
-                outline: 'none',
-                width: '40%',
-            }}>
-
-            </Box> */}
         </Modal>
     )
 }

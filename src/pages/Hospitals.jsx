@@ -6,8 +6,8 @@ import Navbar from "../components/Navbar"
 import DownloadAppSection from "../components/sections/DownloadAppSection"
 import FAQsSection from "../components/sections/FAQsSection"
 
-import HospitalList from "../components/HospitalList"
 import { useLocation } from "react-router-dom"
+import HospitalList from "../components/HospitalList"
 
 const Hospitals = () => {
     const location = useLocation();

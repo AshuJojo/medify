@@ -1,11 +1,11 @@
-import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import { Box, Button, Divider, IconButton, Typography } from '@mui/material';
 import Tab from '@mui/material/Tab';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import { useEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-import { Box, Button, Divider, IconButton, Typography } from '@mui/material';
-import BookingConfirmModal from './BookingConfirmModal';
-import { getDateFromDateObj, getNextSevenDatesFromToday } from '../utils/DateHelper';
 import { useNavigate } from 'react-router-dom';
+import { getDateFromDateObj, getNextSevenDatesFromToday } from '../utils/DateHelper';
+import BookingConfirmModal from './BookingConfirmModal';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;

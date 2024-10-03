@@ -1,11 +1,11 @@
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Container, Typography } from "@mui/material";
+import Grid from '@mui/material/Grid2';
 import { MdOutlineVerified } from "react-icons/md";
 import HospitalInfoCard from "./cards/HospitalInfoCard";
-import Grid from '@mui/material/Grid2';
 
-import ad from '../assets/images/ad.png'
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import ad from '../assets/images/ad.png';
 import { BASE_URL } from "../data/constants";
 
 const HospitalList = ({ state, city }) => {

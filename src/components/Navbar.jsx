@@ -1,9 +1,9 @@
 
 import { Box, Button, Container, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Logo from "./Logo";
-import { NavLink } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 const CustomNavLink = ({ theme, to, children, borderBottom, width = "auto" }) => {
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'));
@@ -19,7 +19,7 @@ const CustomNavLink = ({ theme, to, children, borderBottom, width = "auto" }) =>
           fontWeight: isActive ? 500 : 400,
           borderBottom: isActive && borderBottom === undefined ? `4px solid ${theme.palette.primary.main}` : "",
           paddingTop: 19,
-          paddingBottom: isLargeScreen ? (isActive ? 17: 24) : 4,
+          paddingBottom: isLargeScreen ? 24 : 4,
           marginTop: -18,
           marginBottom: isLargeScreen ? -26 : 0,
           textAlign: 'center'

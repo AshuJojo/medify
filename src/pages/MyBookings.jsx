@@ -1,4 +1,4 @@
-import { Box, Card, Container, Typography } from "@mui/material"
+import { Box, Card, Container, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import AlertBar from "../components/AlertBar"
 import BookedHospitalList from "../components/BookedHospitalList"
@@ -17,19 +17,19 @@ const MyBookings = () => {
     const bookingDates = bookingDatesJSON.filter((dates) => {
       return filteredHospitals.findIndex((hospital) => (hospital['Provider ID'] === dates.substring(0, 6))) !== -1;
     })
-    
+
     setFilteredDates(bookingDates);
-    
+
   }, [filteredHospitals]);
-  
+
   useEffect(() => {
     const storedHospitals = JSON.parse(localStorage.getItem("hospitals") || '[]');
-    
+
     setBookedHospitals(storedHospitals);
     setFilteredHospital(storedHospitals);
-    
+
     const storedBookingDates = JSON.parse(localStorage.getItem("bookings") || '[]');
-    
+
     setBookingDatesJSON(storedBookingDates);
     setFilteredDates(storedBookingDates)
   }, [])
@@ -48,20 +48,15 @@ const MyBookings = () => {
           top: 100,
           zIndex: -1
         }}
-      >
-      </Box>
+      />
 
-
-      <Container sx={{ pt: 2, alignItems: 'start' }}>
-        <Typography variant="h4" width={'50%'} color="white" fontWeight={700} sx={{ p: 2 }}>My Bookings</Typography>
-        <Card elevation={0} sx={{
-          p: 3,
-          borderRadius: 2,
-          boxShadow: '6px 6px 35px 0px #1028511C',
-          mt: 4
-        }}>
-          <HospitalSearchForm bookedHospitals={bookedHospitals} setFilteredHospital={setFilteredHospital} />
-        </Card>
+      <Container sx={{ alignItems: 'start', mt: 3 }}>
+        <Stack direction='row' spacing={6} >
+          <Typography variant="h3" color="white" fontWeight={700}>My Bookings</Typography>
+          <Card elevation={0} sx={{ py: 3, px: 2, borderRadius: 2, flexGrow: 1,}}>
+            <HospitalSearchForm bookedHospitals={bookedHospitals} setFilteredHospital={setFilteredHospital} />
+          </Card>
+        </Stack>
       </Container>
 
       <BookedHospitalList bookedHospitals={filteredHospitals} bookingDatesJSON={filteredDates} />

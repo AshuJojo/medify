@@ -11,7 +11,7 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
         setOpen(true);
 
         if (data) {
-            console.log('AutoComplete INput data', data)
+            console.log('AutoComplete Input data', data)
             setOptions(data);
             return;
         }
@@ -45,7 +45,7 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
             onChange={(e, v) => { setValue(v) }}
             getOptionLabel={(option) => { return (label ? option[label] : option) || "" }}
             disableClearable
-            renderOption={(props, option) => <Typography {...props} key={option} variant="body2">{option}</Typography>}
+            renderOption={(props, option) => <Typography {...props} key={option} variant="body2">{label ? option[label] : option}</Typography>}
             renderInput={(params) => (
                 <TextField
                     {...params}

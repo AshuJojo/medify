@@ -4,12 +4,14 @@ import AutocompleteInput from "../AutoCompleteInput";
 import { FiSearch } from "react-icons/fi";
 
 const HospitalSearchForm = ({ bookedHospitals, setFilteredHospital }) => {
-    const [searchValue, setSearchValue] = useState()
+    const [searchValue, setSearchValue] = useState('')
+
+    console.log('bookedHospitals', bookedHospitals);
 
     const handleFormSubmit = () => {
         if (!searchValue) {
             setFilteredHospital(bookedHospitals);
-            return ;
+            return;
         }
         console.log('search value', searchValue)
         const filteredHospitals = bookedHospitals.filter((hospital) => (hospital['Provider ID'] === searchValue['Provider ID']));
@@ -23,7 +25,6 @@ const HospitalSearchForm = ({ bookedHospitals, setFilteredHospital }) => {
             gap: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '100%',
         }}
         >
             <Box sx={{ flexGrow: 1 }}>
@@ -37,7 +38,7 @@ const HospitalSearchForm = ({ bookedHospitals, setFilteredHospital }) => {
                     fullWidth
                 />
             </Box>
-            <Button startIcon={<FiSearch />} disabled={!searchValue} onClick={handleFormSubmit}>Search</Button>
+            <Button variant="contained" startIcon={<FiSearch />} disabled={!searchValue} onClick={handleFormSubmit}>Search</Button>
         </Box>
     )
 }
