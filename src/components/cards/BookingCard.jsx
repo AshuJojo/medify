@@ -10,7 +10,6 @@ const BookingCard = ({ hospitals, bookingDateJSON }) => {
     const [hospital, setHospital] = useState(null);
     const date = new Date(JSON.parse(`"${bookingDateJSON.substring(6)}"`));
 
-    console.log('date', date)
 
     const formatHospitalAddress = (hospital) => {
         if (!hospital)
@@ -35,7 +34,6 @@ const BookingCard = ({ hospitals, bookingDateJSON }) => {
 
     const getHospitalFromDateJSON = (dateJSON) => {
         const hospitalId = dateJSON.substring(0, 6);
-        console.log('id', hospitalId);
 
         const data = hospitals.find((item) => (item['Provider ID'] == hospitalId.toString()));
 

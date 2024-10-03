@@ -1,11 +1,11 @@
-import { Button, Stack } from "@mui/material"
+import { Button, Stack } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react"
-import { BASE_URL } from "../../data/constants";
-import AutocompleteInput from "../AutoCompleteInput";
+import { useSnackbar } from "notistack";
+import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { useSnackbar } from "notistack";
+import { BASE_URL } from "../../data/constants";
+import AutocompleteInput from "../AutoCompleteInput";
 
 const LocationForm = () => {
     const { enqueueSnackbar } = useSnackbar();
@@ -54,8 +54,6 @@ const LocationForm = () => {
     const handleFormSubmit = () => {
         if (!state || !city)
             return;
-
-        console.log("navigatet")
 
         navigate(`/hospitals?state=${state}&city=${city}`);
     }

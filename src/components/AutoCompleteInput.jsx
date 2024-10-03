@@ -11,7 +11,6 @@ const AutocompleteInput = ({ value, setValue, fetchData, data, label, placeholde
         setOpen(true);
 
         if (data) {
-            console.log('AutoComplete Input data', data)
             setOptions(data);
             return;
         }

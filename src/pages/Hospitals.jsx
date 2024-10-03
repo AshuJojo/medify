@@ -20,7 +20,9 @@ const Hospitals = () => {
     return (
         <>
             <AlertBar />
+
             <Navbar shadow={false} />
+
             <Box
                 sx={{
                     width: '100%',
@@ -31,8 +33,7 @@ const Hospitals = () => {
                     top: 100,
                     zIndex: -1
                 }}
-            >
-            </Box>
+            />
 
             <Container sx={{ pt: 6 }}>
                 <Card elevation={0} sx={{

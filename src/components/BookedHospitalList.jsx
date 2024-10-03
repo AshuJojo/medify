@@ -1,14 +1,12 @@
 import { Box, Container } from "@mui/material"
+import Grid from '@mui/material/Grid2'
 import ad from '../assets/images/ad.png'
 import BookingCard from "./cards/BookingCard"
-import HospitalInfoCard from "./cards/HospitalInfoCard"
-import Grid from '@mui/material/Grid2'
 
 const BookedHospitalList = ({ bookedHospitals, bookingDatesJSON }) => {
     return (
         <Container sx={{
             display: 'block',
-            py: 8
         }}>
             <Box
                 sx={{

@@ -1,19 +1,16 @@
-import { Box, Button } from "@mui/material"
-import { useState } from "react"
-import AutocompleteInput from "../AutoCompleteInput";
+import { Box, Button } from "@mui/material";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import AutocompleteInput from "../AutoCompleteInput";
 
 const HospitalSearchForm = ({ bookedHospitals, setFilteredHospital }) => {
     const [searchValue, setSearchValue] = useState('')
-
-    console.log('bookedHospitals', bookedHospitals);
 
     const handleFormSubmit = () => {
         if (!searchValue) {
             setFilteredHospital(bookedHospitals);
             return;
         }
-        console.log('search value', searchValue)
         const filteredHospitals = bookedHospitals.filter((hospital) => (hospital['Provider ID'] === searchValue['Provider ID']));
 
         setFilteredHospital(filteredHospitals);

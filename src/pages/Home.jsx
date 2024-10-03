@@ -14,8 +14,6 @@ import OffersSection from "../components/sections/OffersSection"
 import StatisticsSection from "../components/sections/StatisticsSection"
 import Specialisations from "../components/Specialisations"
 
-
-
 const Home = () => {
 
   return (
@@ -33,15 +31,15 @@ const Home = () => {
           py: '2.5rem',
           px: '2.188rem',
           borderRadius: 3.75,
-
           position: 'relative',
           zIndex: 99
         }}>
           <Stack direction='column' spacing={6}>
-
+            
             <LocationForm />
 
             <SearchRecommendation />
+          
           </Stack>
         </Card>
       </Container>
@@ -59,6 +57,7 @@ const Home = () => {
       <StatisticsSection />
 
       <FAQsSection />
+      
       <DownloadAppSection />
 
       <Footer />

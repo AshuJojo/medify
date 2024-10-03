@@ -3,7 +3,6 @@ import { getDateFromDateObj, getTimeFromDateObj } from "../utils/DateHelper";
 
 const BookingConfirmModal = ({ isOpen, handleClose, bookingDateJSON, handleConfirmBooking }) => {
 
-    console.log('bookingDateJSON', bookingDateJSON);
 
     const bookingDate = new Date(JSON.parse(`"${bookingDateJSON}"`));
 

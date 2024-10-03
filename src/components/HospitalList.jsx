@@ -26,7 +26,6 @@ const HospitalList = ({ state, city }) => {
         (async () => {
             const data = await fetchHospitals(state, city);
 
-            console.log('hospitals', data);
             if (data)
                 setHospitals(data);
         })()

@@ -33,6 +33,7 @@ It is a medical website frontend application, which can fetch and show available
 * After that we have FAQs section, which shows an accordion of different questions and answers from past.
 * Under that is download app seciton which shows an input and static image.
 * At last we have footer which shows footer navs, and social links and copywrite.
+* Implemented Responsiveness for all components in Landing Page.
 
 #### Hospitals Page
 
@@ -44,12 +45,14 @@ It is a medical website frontend application, which can fetch and show available
 * Upon clicking on these slots button, a modal is shown to confirm booking. 
 * Upon confirming the booking the booking slot is saved in localstorage along with hospital details, the date is a timestamp and no hospital data is duplicated in localstorage to make best use of resources.
 * After saving data in localstorage, the application navigates user to `My Booking` page.
+* Implemented Responsiveness for all components in Hospitals Page.
 
 #### My Booking Page:
 
 * At the top this page have a `search hospital` form.
 * Upon clicking on the input box it shows a list of booked hospitals of users, and on selecting any one option, it only shows the data of that hospital along with booking slot.
 * After that we have a list of booking cards which shows hospital data along with its booking date and timing, these dates and timing are formated in simpler way to persent to the user.
+* Implemented Responsiveness for all components in My Booking Page.
 
 #### Highlighted Tools & Components
 

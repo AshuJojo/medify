@@ -1,8 +1,8 @@
-import { alpha, Box, Container, Divider, List, ListItem, ListItemIcon, Stack, Typography, useTheme } from "@mui/material"
-import Grid from '@mui/material/Grid2'
-import Logo from "./Logo"
-import { FaFacebookF, FaPinterest, FaTwitter, FaYoutube } from "react-icons/fa"
+import { alpha, Box, Container, Divider, List, ListItem, ListItemIcon, Stack, Typography, useTheme } from "@mui/material";
+import Grid from '@mui/material/Grid2';
+import { FaFacebookF, FaPinterest, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Logo from "./Logo";
 
 const Footer = () => {
     const items1 = [

@@ -1,6 +1,5 @@
 import { Avatar, Box, Card, CardContent, CardMedia, Divider, Typography } from "@mui/material"
 
-
 const BlogCard = ({ image, alt, title, category, datePosted, avatar, author }) => {
     return (
         <Card elevation={1} sx={{

@@ -36,7 +36,6 @@ const Navbar = ({ bgColor = 'white', shadow = true }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const openDrawer = () => {
-    console.log("Open Drawer Clicked");
     setIsDrawerOpen(true)
   }
 
